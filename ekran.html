@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <title>Ekran Mistrza Gry</title>
+    <meta name="description" content="Aplikacja stanowi pomoc dla Mistrzów Gry
+    podczas prowadzenia sesji RPG"/>
+    <meta name="keywords" content="RPG, ekran mistrza gry, mistrz gry, MG"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div id="screen">
+        <div id="left_panel">
+            <div id="dice">
+                <div id="DT">
+                    <label for="DT">DT</label>
+                    <select text-align: center;>
+                        <option value="4">D4</option>
+                        <option value="6">D6</option>
+                        <option value="8">D8</option>
+                        <option value="10">D10</option>
+                    </select>
+                </div>
+                <div id="DR">
+                    <label>DR<input type="number" min="1" max="10"></label>
+                </div>
+                <div id="DK">
+                    <label>DK<input type="number" min="1" max="10"></label>
+                </div>
+                <div id="roll">
+                    <button name="roll"><img src="img\roll1.png"></button>
+                </div>
+                <div id="score"><label>Score<input type="text" name="score"></label>
+                </div>
+                <div id="forClear"></div>
+            </div>
+            <div id="music"></div>
+            <div id="m_names"></div>
+            <div id="f_names"></div>
+            <div id="enemies"></div>
+            <div id="weapons"></div>
+            <div id="session_plan"></div>
+            <div id="notes"></div>
+        </div>
+        <div id="right_panel">
+            <div id="sheets"></div>
+            <div id="pinups"></div>
+            <div id="graphics">
+                <button name="graphics"><img src="img\graphics.png"></button>
+            </div>
+            <div id="back_button">
+                <button name="back"><img src="img\back.png"></button>
+            </div>
+        </div>        
+    </div>
+</body>
+</html>
