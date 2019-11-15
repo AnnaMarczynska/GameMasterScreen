@@ -14,11 +14,51 @@
     <div id="screen">
         <div id="left_panel">
             <div id="dice">
-                DR DK Score
+                <div id="DT">
+                    <label for="DT">DT</label>
+                    <select text-align: center;>
+                        <option value="4">D4</option>
+                        <option value="6">D6</option>
+                        <option value="8">D8</option>
+                        <option value="10">D10</option>
+                    </select>
+                </div>
+                <div id="DR">
+                    <label>DR<input type="number" min="1" max="10"></label>
+                </div>
+                <div id="DK">
+                    <label>DK<input type="number" min="1" max="10"></label>
+                </div>
+                <div id="roll">
+                    <button name="roll"><img src="img\roll1.png"></button>
+                </div>
+                <div id="score"><label>Score<input type="text" name="score"></label>
+                </div>
+                <div id="forClear"></div>
             </div>
             <div id="music"></div>
-            <div id="m_names"></div>
-            <div id="f_names"></div>
+            <div id="names_generator">
+                <fieldset id="names">
+                <legend>Male names generator</legend>
+                <div id ="fantasy" name="name_generator"><label name="name_generator"><input type="checkbox">Fantasy</label></div>
+                <div id ="latin" name="name_generator"><label name="name_generator"><input type="checkbox">Latin</label></div>
+                <div id ="semic" name="name_generator"><label name="name_generator"><input type="checkbox">Semic</label></div>
+                <div id ="japanese" name="name_generator"><label name="name_generator"><input type="checkbox">Japanese</label></div>
+                <div id ="celtic" name="name_generator"><label name="name_generator"><input type="checkbox">Celtic</label></div>
+                <div id ="mythology" name="name_generator"><label name="name_generator"><input type="checkbox">Mythology</label></div>          
+                    <fieldset id="gender">
+                        <legend>Gender</legend>
+                        <div id="f" name="gender"><label name="female"><input type="checkbox">F</label></div>
+                        <div id="m" name="gender"><label name="male"><input type="checkbox">M</label></div>
+                    </fieldset>
+                <div id="generate_button">
+                    <button id="generate_button"><img src="img/go.png"></button>
+                </div>
+                <div id="name">
+                    <input id="name" type="text">
+                </div>
+                </fieldset>
+            </div>
             <div id="enemies"></div>
             <div id="weapons"></div>
             <div id="session_plan"></div>
@@ -27,8 +67,12 @@
         <div id="right_panel">
             <div id="sheets"></div>
             <div id="pinups"></div>
-            <div id="graphics"></div>
-            <div id="back_button"></div>
+            <div id="graphics">
+                <button name="graphics"><img src="img\graphics.png"></button>
+            </div>
+            <div id="back_button">
+                <button name="back"><img src="img\back.png"></button>
+            </div>
         </div>        
     </div>
 </body>
