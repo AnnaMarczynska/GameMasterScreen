@@ -8,34 +8,34 @@
     <meta name="keywords" content="RPG, ekran mistrza gry, mistrz gry, MG"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <link rel="stylesheet" href="style.css" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
     <div class="screen">
         <div class="panels">
             <div class="row">
-                <div class="signle_div" style="margin-left: 5px;">
+                <div class="signle_div" id="rollDiv" style="margin-left: 5px;">
                     <div class="in_divs">
                         <label>DT</label>
-                        <select name="DT" input class="inputs">
-                            <option>D4</option>
-                            <option>D6</option>
-                            <option>D10</option>
-                            <option>D100</option>    
+                        <select id="DT" input class="inputs">
+                            <option value="4">D4</option>
+                            <option value="6">D6</option>
+                            <option value="10">D10</option>
+                            <option value="100">D100</option>
                         </select>
                     </div>
                     <div class="in_divs">
-                        <label>DR<input class="inputs" type="number" min="1" max="10"></label>
+                        <label>DR<input id="DR" class="inputs" type="number" min="1" max="10"></label>
                     </div>
                     <div class="in_divs">
-                        <label>DK<input class="inputs" type="number" min="1" max="10"></label>    
+                        <label>DK<input id="DK" class="inputs" type="number" min="1" max="10"></label>
+                    </div>
+                    <div class="in_divs" id="rollButtonDiv">
+                        <button id="rollButton" class="roll_button">ROLL</button>
                     </div>
                     <div class="in_divs">
-                        <button class="roll_button">ROLL</button>
-                    </div>
-                    <div class="in_divs">
-                        <label>Score<input class="inputs" type="text" style="width: 55px"></label>    
+                        <label>Score<input id="Score" class="inputs" type="text" style="width: 55px"></label>
                     </div>
                 </div>
                 <div class="signle_div" style="margin-right: 5px;">
@@ -90,23 +90,23 @@
                 <div class="signle_div" style="margin-left: 5px;">
                     <div class="in_divs">
                         <label>Diff</label>
-                        <select name="Diff" input class="inputs" style="width: 65px;">
-                            <option>easy</option>
-                            <option>medium</option>
-                            <option>high</option>
+                        <select id="Level" input class="inputs" style="width: 65px;">
+                            <option value ="easy">easy</option>
+                            <option value ="medium">medium</option>
+                            <option value ="high">high</option>
                         </select>
                     </div>
                     <div class="in_divs">
-                        <button class="roll_button" style="margin-left: 10px;">GO</button>
+                        <button id='enemyGenerateButton' class="roll_button" style="margin-left: 10px;">GO</button>
                     </div>
                     <div class="in_divs">
-                        <label>HP<input class="inputs" type="text" style="width: 45px"></label> 
+                        <label>HP<input id='HP' class="inputs" type="text" style="width: 45px"></label>
                     </div>
                     <div class="in_divs">
-                        <label>STR<input class="inputs" type="text" style="width: 45px"></label>  
+                        <label>STR<input id ='STR' class="inputs" type="text" style="width: 45px"></label>
                     </div>
                     <div class="in_divs">
-                        <label>Armor<input class="inputs" type="text" style="width: 45px"></label>  
+                        <label>Armor<input id='Armor' class="inputs" type="text" style="width: 45px"></label>
                     </div>
                 </div>
                 <div class="signle_div" style="margin-right: 5px;">
@@ -179,8 +179,9 @@
                     <button class ="back_button">BACK</button>
                 </div>
             </div>
-        </div>             
+        </div>
     </div>
 </div>
+<script src="screen1.js"></script>
 </body>
 </html>

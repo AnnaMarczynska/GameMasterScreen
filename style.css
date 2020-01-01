@@ -5,7 +5,7 @@ body
     font-family: 'Yeon Sung', cursive;
     font-weight: 700;
     font-size: 23px;
-    margin: 0 auto;   
+    margin: 0 auto;
 }
 .container
 {
@@ -46,7 +46,7 @@ body
     flex-direction: row;
     justify-content: space-evenly;
     margin: 5px 5px 5px 5px;
-    border: solid black; 
+    border: solid black;
 }
 .left_big_row
 {
@@ -59,7 +59,7 @@ body
 {
     height: 44%;
     margin-top: 5px;
-    border: solid black; 
+    border: solid black;
 }
 .signle_div
 {
@@ -70,7 +70,7 @@ body
     border: solid black;
 }
 .in_divs
-{   
+{
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -82,6 +82,7 @@ body
 {
     margin-top: 10px;
     border: solid black;
+    text-align-last: center; 
 }
 .roll_button
 {
@@ -97,8 +98,7 @@ body
 }
 .roll_button:hover
 {
-    border: none;
-    background-color: gray;
+  background-color: gray;
 }
 .music_div
 {
@@ -123,8 +123,8 @@ body
     margin-top: -6px;
     border:2px solid black;
     -moz-border-radius:8px;
-    -webkit-border-radius:8px;  
-    border-radius:8px;  
+    -webkit-border-radius:8px;
+    border-radius:8px;
 }
 .whole_name_row
 {
@@ -156,8 +156,8 @@ body
     font-size: 20px;
     border:2px solid black;
     -moz-border-radius:8px;
-    -webkit-border-radius:8px;  
-    border-radius:8px;  
+    -webkit-border-radius:8px;
+    border-radius:8px;
     margin-top: -5px;
 }
 .gender_type_div
@@ -197,8 +197,12 @@ body
     border: solid black;
     background-color: white;
 }
+.names_go_button:hover
+{
+    background-color:grey;
+}
 .name_output_div
-{   
+{
     width: 30%;
     height: 90%;
     display: flex;
@@ -219,8 +223,8 @@ body
     font-size: 20px;
     border:2px solid black;
     -moz-border-radius:8px;
-    -webkit-border-radius:8px;  
-    border-radius:8px;  
+    -webkit-border-radius:8px;
+    border-radius:8px;
     margin-top: -5px;
 }
 .session_notes_plan
@@ -236,7 +240,7 @@ body
     margin: 5px 5px 5px 5px;
 }
 .session_notes_inputs
-{   
+{
     width: 100%;
     height: 100%;
     box-shadow: inset 5px 5px 10px;
@@ -259,7 +263,7 @@ body
     font-style: bold;
     border-radius: 25px;
     border: solid black;
-    background-color: gray;  
+    background-color: gray;
 }
 .right_panels
 {
@@ -284,7 +288,7 @@ body
     text-align: center;
     border-radius: 25px;
     border: solid black;
-    background-color: gray; 
+    background-color: gray;
 }
 .sheets_pinups_div
 {
