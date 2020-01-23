@@ -35,14 +35,28 @@ var score = document.getElementById("Score");
 score.value = sume;
 }
 
-
 document.getElementById("enemyGenerateButton").addEventListener("click", generateRandomEnemy);
 function generateRandomEnemy(){
-  var enemyLevel = (document.getElementById("Level").value
+  var hp, str, armor;
 
-    if(enemyLevel == 'easy'){
-      document.getElementById("HP").value = (Math.random() * (5-2) +1);
-      document.getElementById("STR").value = (Math.random() * (3-1) +1);
-      document.getElementById("aRMOR").value = (Math.random() * (3-0) +1);
+  if(Level != null){
+    if(document.getElementById('Level').value == 'easy'){
+      hp = 4;
+      str = Math.round((Math.random() * (3-1))) + 1;
+      armor = Math.round((Math.random() * (3-1))) + 1;
     }
+    else if(document.getElementById('Level').value == 'medium'){
+      hp = 6;
+      str = Math.round((Math.random() * (4-1))) + 2;
+      armor = Math.round((Math.random() * (4-1))) + 2;
     }
+    else{
+      hp = 8;
+      str = Math.round((Math.random() * (5-1))) + 3;
+      armor = Math.round((Math.random() * (5-1))) + 4;
+    }
+  }
+  document.getElementById('HP').value = hp;
+  document.getElementById('STR').value = str;
+  document.getElementById('Armor').value = armor;
+}
