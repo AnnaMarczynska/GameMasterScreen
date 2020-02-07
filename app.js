@@ -61,8 +61,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const diceRoutes = require('./services/dice.service.server')
+const diceRoutes = require('./services/dice.service.server');
 app.use('/dice', diceRoutes);
+
+const enemyRoutes = require('./services/enemy.service.server');
+app.use('/enemy', enemyRoutes);
 
 module.exports = app;
 

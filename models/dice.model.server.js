@@ -10,7 +10,7 @@ module.exports = function () {
         {
             var rollsArray = [];
 
-            if ((DT != null) && (DR != null) && (DK != null)) {
+            if (DT != null && DR != null && DK != null) {
                 for (var i = 0; i < DR; i++) {
                     var min = 1;
                     var max = DT;
