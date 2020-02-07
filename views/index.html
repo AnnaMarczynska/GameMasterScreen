@@ -14,7 +14,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
     <script src="/app.js"></script>
     <script src="/controllers/dice.controller.js"></script>
- 
+    <script src="/controllers/enemy.controller.js"></script>
 
 </head>
 <body>
@@ -96,26 +96,26 @@
                 </fieldset>
             </div>
             <div class="row">
-                <div class="signle_div" style="margin-left: 5px;">
+                <div class="signle_div" ng-controller="EnemyCtrl" style="margin-left: 5px;">
                     <div class="in_divs">
                         <label>Diff</label>
-                        <select id="Level" input class="inputs" style="width: 65px;">
+                        <select id="Level" ng-model="level" input class="inputs" style="width: 65px;">
                             <option value ="easy">easy</option>
                             <option value ="medium">medium</option>
                             <option value ="high">high</option>
                         </select>
                     </div>
                     <div class="in_divs">
-                        <button id='enemyGenerateButton' class="roll_button" style="margin-left: 10px;">GO</button>
+                        <button id='enemyGenerateButton' class="roll_button" ng-click="generateEnemy()" style="margin-left: 10px;">GO</button>
                     </div>
                     <div class="in_divs">
-                        <label>HP<input id='HP' class="inputs" type="text" style="width: 45px"></label>
+                        <label>HP<input id='HP' ng-model="hp" class="inputs" type="text" style="width: 45px"></label>
                     </div>
                     <div class="in_divs">
-                        <label>STR<input id ='STR' class="inputs" type="text" style="width: 45px"></label>
+                        <label>STR<input id ='STR' ng-model="str" class="inputs" type="text" style="width: 45px"></label>
                     </div>
                     <div class="in_divs">
-                        <label>Armor<input id='Armor' class="inputs" type="text" style="width: 45px"></label>
+                        <label>Armor<input id='armor' ng-model="armor" class="inputs" type="text" style="width: 45px"></label>
                     </div>
                 </div>
                 <div class="signle_div" style="margin-right: 5px;">
