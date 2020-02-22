@@ -15,6 +15,7 @@
     <script src="/app.js"></script>
     <script src="/controllers/dice.controller.js"></script>
     <script src="/controllers/enemy.controller.js"></script>
+    <script src="/controllers/names.controller.js"></script>
 
 </head>
 <body>
@@ -62,35 +63,35 @@
                     </div>
                 </div>
             </div>
-            <div class="names_row">
+            <div class="names_row" ng-controller="NameCtrl">
                 <fieldset class="names_fieldset">
                 <legend>Names generator</legend>
                 <div class="whole_name_row">
                     <div class="names_div">
-                        <label><input type="checkbox">Fantasy</label>
-                        <label><input type="checkbox">Japanese</label>
-                        <label><input type="checkbox">Mythology</label>
-                        <label><input type="checkbox">Semic</label>
-                        <label><input type="checkbox">Irish</label>
-                        <label><input type="checkbox">Scothis</label>
+                        <label><input type="radio" ng-model="category" value="fantasy">Fantasy</label>
+                        <label><input type="radio" ng-model="category" value="japanese">Japanese</label>
+                        <label><input type="radio" ng-model="category" value="mythology">Mythology</label>
+                        <label><input type="radio" ng-model="category" value="semic">Semic</label>
+                        <label><input type="radio" ng-model="category" value="irish">Irish</label>
+                        <label><input type="radio" ng-model="category" value="scottish">Scotthis</label>
                     </div>
                     <div class="gender_type_div">
                     <fieldset class="gender_fieldset">
                         <legend>Gender</legend>
                         <div class="gender_buttons">
-                        <input type="radio" name="male-female" id="female">
+                        <input type="radio" name="male-female" id="female" ng-model="gender" value="F">
                         <label for="female">F</label>
-                        <input type="radio" name="male-female" id="male">
+                        <input type="radio" name="male-female" id="male" ng-model="gender" value="M">
                         <label for="male">M</label>
                         </div>
                     </fieldset>
                     </div>
                     <div class="names_go_button_div">
-                        <button class="names_go_button">GO</button>
+                        <button class="names_go_button" ng-click="generateName()">GO</button>
                     </div>
                     <div class="name_output_div">
-                        The name is:
-                        <input class="inputs" type="text">
+                        The name is: 
+                        <input class="inputs" type="text" ng-model="result">
                     </div>
                 </div>
                 </fieldset>

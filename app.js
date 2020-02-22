@@ -68,6 +68,10 @@ app.use('/dice', diceRoutes);
 
 const enemyRoutes = require('./services/enemy.service.server');
 app.use('/enemy', enemyRoutes);
+
+const namesRoutes = require('./services/names.service.server')
+app.use('/names', namesRoutes);
+
 const sessionPlanRoutes = require('./services/sessionPlan.service.server');
 app.use('/sessionPlan', sessionPlanRoutes);
 

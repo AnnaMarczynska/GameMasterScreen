@@ -2,17 +2,17 @@
 
     angular
         .module("GMS")
-        .factory("NameService", EnemyService);
+        .factory("NamesService", NamesService);
 
-    function NameService($http) {
+    function NamesService($http) {
         var api = {
             generateName: generateName
         };
         return api;
 
-        function generateName() {
+        function generateName(gender, category) {
             console.log()
-            return $http.get('/name/generate')
+            return $http.get('/names/generate/'+gender+'/'+category)
         }
     }
 
@@ -20,13 +20,14 @@
         .module("GMS")
         .controller("NameCtrl", NameCtrl);
 
-    function NameCtrl($scope, NameService) {
+    function NameCtrl($scope, NamesService) {
+        $scope.result = ""
         $scope.generateName = function () {
-            NameService
-                .generateName()
+            NamesService
+                .generateName($scope.gender, $scope.category)
                 .then(
                     function (response) {
-                        //coś
+                        $scope.result = response.data
                     },
                     function (err) {
                         $scope.error = err;

@@ -31,7 +31,7 @@ module.exports = function () {
         viewCharacterSheet.find();
     }
 
-    function getMongooseModel(){
+    function getMongooseModel() {
         return characterSheetModel;
     }
 }
