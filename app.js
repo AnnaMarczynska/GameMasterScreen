@@ -11,9 +11,11 @@ var multer        = require('multer');
 var passport      = require('passport');
 var cookieParser  = require('cookie-parser');
 var session       = require('express-session');
+var mongoose      = require('mongoose');
 
 var app = express();
 
+mongoose.connect('mongodb://localhost/GameMasterScreenDB');
 
 /* GET home page. */
 app.get('/', function(req, res, next) {
@@ -66,6 +68,8 @@ app.use('/dice', diceRoutes);
 
 const enemyRoutes = require('./services/enemy.service.server');
 app.use('/enemy', enemyRoutes);
+const sessionPlanRoutes = require('./services/sessionPlan.service.server');
+app.use('/sessionPlan', sessionPlanRoutes);
 
 module.exports = app;
 
