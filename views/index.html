@@ -16,6 +16,13 @@
     <script src="/controllers/dice.controller.js"></script>
     <script src="/controllers/enemy.controller.js"></script>
     <script src="/controllers/names.controller.js"></script>
+    <script src="/controllers/music.controller.js"></script>
+    <script src="/controllers/characterSheet.controller.js"></script>
+    <script src="/controllers/graphics.controller.js"></script>
+    <script src="/controllers/notes.controller.js"></script>
+    <script src="/controllers/pinups.controller.js"></script>
+    <script src="/controllers/sessionPlan.controller.js"></script>
+    <script src="/controllers/weapons.controller.js"></script>
 
 </head>
 <body>
@@ -48,7 +55,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="signle_div" style="margin-right: 5px;">
+                <div class="signle_div" style="margin-right: 5px;" ng-controller="MusicCtrl">
                     <div class="music_div">
                         <button class="music_btn"><img src="/images/play_b.png" height="50" width="50"></button>
                     </div>
@@ -97,7 +104,7 @@
                 </fieldset>
             </div>
             <div class="row">
-                <div class="signle_div" ng-controller="EnemyCtrl" style="margin-left: 5px;">
+                <div class="signle_div" style="margin-left: 5px;" ng-controller="EnemyCtrl">
                     <div class="in_divs">
                         <label>Diff</label>
                         <select id="Level" ng-model="level" input class="inputs" style="width: 65px;">
@@ -119,19 +126,16 @@
                         <label>Armor<input id='armor' ng-model="armor" class="inputs" type="text" style="width: 45px"></label>
                     </div>
                 </div>
-                <div class="signle_div" style="margin-right: 5px;">
+                <div class="signle_div" style="margin-right: 5px;" ng-controller="WeaponsCtrl">
                     <div class="in_divs">
                         <label>List</label>
-                            <select name="List" input class="inputs" style="width: 65px;">
-                                <option>bow</option>
-                                <option>sword</option>
-                            </select>
+                            <select name="List" input class="inputs" style="width: 65px;" ng-model="result"></select>
                     </div>
                     <div class="in_divs">
                         <fieldset class="type_fieldset">
                         <legend>Type</legend>
-                        <label><input type="checkbox">M</label>
-                        <label><input type="checkbox">R</label>
+                        <label><input type="checkbox" ng-model="type">M</label>
+                        <label><input type="checkbox" ng-model="type">R</label>
                     </fieldset>
                     </div>
                     <div class="in_divs">
@@ -143,7 +147,7 @@
                 </div>
             </div>
             <div class="left_big_row">
-                <div class="session_notes_plan" style="margin-left: 5px;">
+                <div class="session_notes_plan" style="margin-left: 5px;" ng-controller="sessionPlanCtrl">
                     <div class="session_notes_field">
                         <input class="session_notes_inputs" type="text">
                     </div>
@@ -151,7 +155,7 @@
                         <button class="session_notes_buttons">BROWSE</button>
                     </div>
                 </div>
-                <div class="session_notes_plan" style="margin-right: 5px;">
+                <div class="session_notes_plan" style="margin-right: 5px;" ng-controller="NotesCtrl">
                     <div class="session_notes_field">
                         <input class="session_notes_inputs" type="text">
                     </div>
@@ -167,12 +171,12 @@
                 <div class="sheets_pinups_buttons_row">
                     <button class="sheets_pinups_button">BROWSE</button>
                 </div>
-                <div class="sheets_pinups_div">
+                <div class="sheets_pinups_div" ng-controller="characterSheetCtrl">
                     <input class="sheets_pinups_field" type="text">
                 </div>
             </div>
             <div class="right_panels">
-                <div class="sheets_pinups_buttons_row">
+                <div class="sheets_pinups_buttons_row" ng-controller="PinupsCtrl">
                     <button class="sheets_pinups_button">ADD</button>
                     <button class="sheets_pinups_button">DEL</button>
                 </div>
@@ -181,7 +185,7 @@
                 </div>
             </div>
             <div class="buttons_row">
-                <div class="graphics">
+                <div class="graphics" ng-controller="GraphicsCtrl">
                     <button class="graphic_button">GRAPHICS</button>
                 </div>
                 <div class="space_div"></div>

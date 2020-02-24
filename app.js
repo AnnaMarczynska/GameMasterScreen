@@ -75,5 +75,8 @@ app.use('/names', namesRoutes);
 const sessionPlanRoutes = require('./services/sessionPlan.service.server');
 app.use('/sessionPlan', sessionPlanRoutes);
 
+const weaponsRoutes = require('./services/weapons.service.server');
+app.use('/weapons', weaponsRoutes);
+
 module.exports = app;
 
