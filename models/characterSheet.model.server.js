@@ -1,19 +1,21 @@
 var mongoose = require('mongoose');
 
 var charcterSheetSchema = new mongoose.Schema({
-    name: String,
+    charactersName: String,
     playersName: String,
-    age: Number,
     proffesion: String,
+    age: Number,
+    advantages: String,
+    disadvantages: String,
+    notes: String,
+    HP: Number,
+    armor: Number,
     STR: Number,
     CON: Number,
     DEX: Number,
     INT: Number,
     WIS: Number,
-    CHA: Number,
-    HP: Number,
-    armor: Number,
-    notes: String
+    CHA: Number    
 }, {
     collection: "characterSheets"
 });
@@ -27,8 +29,13 @@ module.exports = function () {
 
     return api;
 
-    function viewCharacterSheet() {
-        viewCharacterSheet.find();
+    function viewCharacterSheet(charactersName) {
+        return characterSheetModel.aggregate([
+            {$match: {charactersName: charactersName}}
+        ], function(err, docs){
+            console.log(docs)
+            return docs
+        });        
     }
 
     function getMongooseModel() {
