@@ -349,7 +349,7 @@ body
 }
 .sheets_pinups_button
 {
-    width: 15%;
+    width: 18%;
     height: 100%;
     font-family: 'Yeon Sung', cursive;
     font-size: 25px;
@@ -359,12 +359,28 @@ body
     border: solid black;
     background-color: gray;
 }
-.sheets_pinups_div
+.sheets_div
+{
+    width: 98;
+    height: 88%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px 5px 5px 5px;
+}
+.pinups_div
 {
     width: 98;
     height: 88%;
     display: flex;
     margin: 5px 5px 5px 5px;
+}
+.all_sheets
+{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .sheets_pinups_field
 {

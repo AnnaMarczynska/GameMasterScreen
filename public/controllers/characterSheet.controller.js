@@ -21,7 +21,15 @@
         .controller("CharacterSheetCtrl", CharacterSheetCtrl);
 
     function CharacterSheetCtrl($scope, CharacterSheetService) {
-        $scope.result = ""
+        $scope.showBrowser = false;
+        $scope.showSheet = true;
+        $scope.result = "";
+
+        $scope.toggleBrowser = function(){
+            $scope.showBrowser = !$scope.showBrowser;
+            $scope.showSheet = !$scope.showSheet;
+        }
+
         $scope.viewCharacterSheet = function () {
             CharacterSheetService
                 .viewCharacterSheet(

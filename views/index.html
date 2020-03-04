@@ -169,10 +169,11 @@
         </div>
         <div class="panels">
             <div class="right_panels">
-                <div class="sheets_pinups_buttons_row">
-                    <button class="sheets_pinups_button">BROWSE</button>
-                </div>
-                <div class="sheets_pinups_div" ng-controller="CharacterSheetCtrl">
+                <div class="sheets_div" ng-controller="CharacterSheetCtrl">
+                    <div class="sheets_pinups_buttons_row">
+                        <button class="sheets_pinups_button" ng-click="toggleBrowser()">BROWSE</button>
+                    </div>
+                    <div class="all_sheets" ng-show="showSheet">
                     <div class="sheets_left_panel">
                         <div class="left_stats_row" ng-model="charactersName"><label>Character's name: </label></div>
                         <div class="left_stats_row" ng-model="playersName"><label>Player's name: </label></div>
@@ -192,6 +193,10 @@
                         <div class="right_stats_row" ng-model="WIS"><label>WIS: </label></div>
                         <div class="right_stats_row" ng-model="CHA"><label>CHA: </label></div>
                     </div>
+                    </div>
+                    <div class="characterBrowse" ng-show="showBrowser">
+                        coś
+                    </div>
                 </div>
             </div>
             <div class="right_panels">
@@ -199,7 +204,7 @@
                     <button class="sheets_pinups_button">ADD</button>
                     <button class="sheets_pinups_button">DEL</button>
                 </div>
-                <div class="sheets_pinups_div">
+                <div class="pinups_div">
                     <input class="sheets_pinups_field" type="text">
                 </div>
             </div>
