@@ -78,5 +78,8 @@ app.use('/sessionPlan', sessionPlanRoutes);
 const weaponsRoutes = require('./services/weapons.service.server');
 app.use('/weapons', weaponsRoutes);
 
+const charactersRouter = require('./services/characterSheet.service.server');
+app.use('/characters', charactersRouter);
+
 module.exports = app;
 

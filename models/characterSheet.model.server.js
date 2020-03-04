@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var charcterSheetSchema = new mongoose.Schema({
+var characterSheetSchema = new mongoose.Schema({
     charactersName: String,
     playersName: String,
     proffesion: String,
@@ -17,13 +17,14 @@ var charcterSheetSchema = new mongoose.Schema({
     WIS: Number,
     CHA: Number    
 }, {
-    collection: "characterSheets"
+    collection: "characterSheet"
 });
 
-var characterSheetModel = mongoose.model('characterSheetModel', characterSheetSchema;
+var characterSheetModel = mongoose.model('characterSheetModel', characterSheetSchema);
 module.exports = function () {
     var api = {
         viewCharacterSheet: viewCharacterSheet,
+        getAllCharacters: getAllCharacters,
         getMongooseModel: getMongooseModel
     }
 
@@ -36,6 +37,11 @@ module.exports = function () {
             console.log(docs)
             return docs
         });        
+    }
+
+    function getAllCharacters(){
+        console.log("MODEL")
+        return characterSheetModel.find();
     }
 
     function getMongooseModel() {

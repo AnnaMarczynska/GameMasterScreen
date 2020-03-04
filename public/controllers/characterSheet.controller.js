@@ -6,9 +6,14 @@
 
     function CharacterSheetService($http) {
         var api = {
-            viewCharacterSheet: viewCharacterSheet
+            viewCharacterSheet: viewCharacterSheet,
+            getAllCharacters: getAllCharacters
         };
         return api;
+
+        function getAllCharacters(){
+            return $http.get('characters/view')
+        }
 
         function viewCharacterSheet(charactersName) {
             console.log()
@@ -24,12 +29,22 @@
         $scope.showBrowser = false;
         $scope.showSheet = true;
         $scope.result = "";
+        $scope.charactersArray = [];
+        $scope.chosenCharacter = "";
 
         $scope.toggleBrowser = function(){
             $scope.showBrowser = !$scope.showBrowser;
             $scope.showSheet = !$scope.showSheet;
         }
 
+        $scope.getAllCharacters = function(){
+            CharacterSheetService.getAllCharacters()
+            .then(
+                function(response){
+                    $scope.charactersArray = response.data;
+                }
+            )
+        }
         $scope.viewCharacterSheet = function () {
             CharacterSheetService
                 .viewCharacterSheet(

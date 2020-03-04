@@ -347,6 +347,17 @@ body
     align-items: center;
     margin-left: 10px;
 }
+.sheets_button
+{
+width: 20%;
+height: 105%;
+font-family: 'Yeon Sung', cursive;
+font-size: 25px;
+font-style: bold;
+border-radius: 25px;
+border: solid black;
+background-color: gray;
+}
 .sheets_pinups_button
 {
     width: 18%;
