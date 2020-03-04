@@ -2,7 +2,7 @@
 
     angular
         .module("GMS")
-        .factory("weaponsService", WeaponsService);
+        .factory("WeaponsService", WeaponsService);
 
     function WeaponsService($http){
         var api = {

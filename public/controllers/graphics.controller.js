@@ -17,7 +17,7 @@
 
     angular
         .module("GMS")
-        .contoller("GraphicsCtrl", GraphicsCtrl)
+        .controller("GraphicsCtrl", GraphicsCtrl)
 
     function GraphicsCtrl($scope, GraphicsService) {
         $scope.viewGraphics = function () {
