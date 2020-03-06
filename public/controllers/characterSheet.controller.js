@@ -30,11 +30,12 @@
         $scope.showSheet = true;
         $scope.result = "";
         $scope.charactersArray = [];
-        $scope.chosenCharacter = "";
+        $scope.chosenCharacter;
 
         $scope.toggleBrowser = function(){
             $scope.showBrowser = !$scope.showBrowser;
             $scope.showSheet = !$scope.showSheet;
+            console.log($scope.chosenCharacter)
         }
 
         $scope.getAllCharacters = function(){

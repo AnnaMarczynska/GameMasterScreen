@@ -175,30 +175,29 @@
                     </div>
                     <div class="all_sheets" ng-show="showSheet">
                     <div class="sheets_left_panel">
-                        <div class="left_stats_row" ><label>Character's name: {{chosenCharacter}}</label></div>
-                        <div class="left_stats_row" ><label>Player's name: {{chosenCharacter.playersName}}</label></div>
-                        <div class="left_stats_row" ng-model="proffesion"><label>Proffesion: {{chosenCharacter.proffesion}}</label></div>
-                        <div class="left_stats_row" ng-model="age"><label>Age: {{chosenCharacter.age}}</label></div>
-                        <div class="left_stats_row" ng-model="advantages"><label>Advantages: {{chosenCharacter.advantages}}</label></div>
-                        <div class="left_stats_row" ng-model="disadvantages"><label>Disadvantages: </label></div>
-                        <div class="notes_stats_row" ng-model="notes"><label>Notes: </label></div>
+                        <div class="left_stats_row"><label>Character's name: {{chosenCharacter.charactersName}}</label></div>
+                        <div class="left_stats_row"><label>Player's name: {{chosenCharacter.playersName}}</label></div>
+                        <div class="left_stats_row"><label>Proffesion: {{chosenCharacter.proffesion}}</label></div>
+                        <div class="left_stats_row"><label>Age: {{chosenCharacter.age}}</label></div>
+                        <div class="left_stats_row"><label>Advantages: {{chosenCharacter.advantages}}</label></div>
+                        <div class="left_stats_row"><label>Disadvantages: {{chosenCharacter.disadvantages}}</label></div>
+                        <div class="notes_stats_row"><label>Notes: {{chosenCharacter.notes}}</label></div>
                     </div>
                     <div class="sheets_right_panel" type="text">
-                        <div class="right_stats_row" ng-model="HP"><label>HP: </label></div>
-                        <div class="right_stats_row" ng-model="armor"><label>Armor: </label></div>
-                        <div class="right_stats_row" ng-model="STR"><label>STR: </label></div>
-                        <div class="right_stats_row" ng-model="CON"><label>CON: </label></div>
-                        <div class="right_stats_row" ng-model="DEX"><label>DEX: </label></div>
-                        <div class="right_stats_row" ng-model="INT"><label>INT: </label></div>
-                        <div class="right_stats_row" ng-model="WIS"><label>WIS: </label></div>
-                        <div class="right_stats_row" ng-model="CHA"><label>CHA: </label></div>
+                        <div class="right_stats_row"><label>HP: {{chosenCharacter.HP}}</label></div>
+                        <div class="right_stats_row"><label>Armor: {{chosenCharacter.armor}}</label></div>
+                        <div class="right_stats_row"><label>STR: {{chosenCharacter.STR}}</label></div>
+                        <div class="right_stats_row"><label>CON: {{chosenCharacter.CON}}</label></div>
+                        <div class="right_stats_row"><label>DEX: {{chosenCharacter.DEX}}</label></div>
+                        <div class="right_stats_row"><label>INT: {{chosenCharacter.INT}}</label></div>
+                        <div class="right_stats_row"><label>WIS: {{chosenCharacter.WIS}}</label></div>
+                        <div class="right_stats_row"><label>CHA: {{chosenCharacter.CHA}}</label></div>
                     </div>
                     </div>
                     <div class="characterBrowse" ng-show="showBrowser">
-                        <select id="charactersSelection" ng-model="chosenCharacter" input class="inputs">
-                            <option ng-repeat="character in charactersArray" value={{character.charactersName}} ng-value="{{character.charactersName}}">{{character.charactersName}}</option>
+                        <select id="charactersSelection" ng-model="chosenCharacter" input class="inputs" ng-options="character.charactersName for character in charactersArray">
                         </select>
-                        {{chosenCharacter}}
+                        {{character.charactersName}}
                     </div>
                 </div>
             </div>
