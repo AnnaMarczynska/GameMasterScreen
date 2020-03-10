@@ -358,6 +358,15 @@ border-radius: 25px;
 border: solid black;
 background-color: gray;
 }
+.characterBrowse
+{
+    width: 50%;
+    height: 10%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: -105px;
+    margin-left: 285px;
+}
 .sheets_pinups_button
 {
     width: 18%;

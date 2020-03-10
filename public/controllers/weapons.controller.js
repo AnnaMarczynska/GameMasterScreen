@@ -1,18 +1,22 @@
-(function(){
+(function () {
 
     angular
         .module("GMS")
         .factory("WeaponsService", WeaponsService);
 
-    function WeaponsService($http){
+    function WeaponsService($http) {
         var api = {
-            viewWeapons: viewWeapons
+            viewWeapons: viewWeapons,
+            getWeaponsList: getWeaponsList
         };
         return api;
 
-        function viewWeapons(name, type){
-            console.log()
-            return $http.get('/weapons/view/'+name+'/'+type)
+        function getWeaponsList() {
+            return $http.get('weapons/view')
+        }
+
+        function viewWeapons(name) {
+            return $http.get('/view/weapons/' + name)
         }
     }
 
@@ -20,20 +24,29 @@
         .module("GMS")
         .controller("WeaponsCtrl", WeaponsCtrl);
 
-    function WeaponsCtrl($scope, WeaponsService){
+    function WeaponsCtrl($scope, WeaponsService) {
         $scope.result = ""
-        $scope.viewWeapons = function(){
+        $scope.weaponsArray = [];
+        $scope.chosenWeapon;
+        /*$scope.viewWeapons = function () {
             WeaponsService
                 .viewWeapons($scope.name, $scope.type)
                 .then(
-                    function(response){
+                    function (response) {
                         $scope.result = response.data
                     },
-                    function (err){
+                    function (err) {
                         $scope.error = err
+                    }
+                )
+        }*/
+        $scope.getWeaponsList = function () {
+            WeaponsService.getWeaponsList()
+                .then(
+                    function (response) {
+                        $scope.weaponsArray = response.data;
                     }
                 )
         }
     }
-
 })();

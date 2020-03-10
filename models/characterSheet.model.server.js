@@ -34,13 +34,11 @@ module.exports = function () {
         return characterSheetModel.aggregate([
             {$match: {charactersName: charactersName}}
         ], function(err, docs){
-            console.log(docs)
             return docs
         });        
     }
 
     function getAllCharacters(){
-        console.log("MODEL")
         return characterSheetModel.find();
     }
 

@@ -46,20 +46,5 @@
                 }
             )
         }
-        $scope.viewCharacterSheet = function () {
-            CharacterSheetService
-                .viewCharacterSheet(
-                    $scope.charactersName, $scope.playersName, $scope.proffesion, $scope.age,
-                    $scope.advantages, $scope.disadvantages, $scope.notes, $scope.HP, $scope.armor,
-                    $scope.STR, $scope.CON, $scope.DEX, $scope.INT, $scope.WIS, $scope.CHA)
-                .then(
-                    function (response) {
-                        $scope.result = response.data
-                    },
-                    function (err) {
-                        $scope.error = err;
-                    }
-                )
-        }
     }
 })();

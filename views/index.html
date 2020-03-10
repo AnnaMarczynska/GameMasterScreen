@@ -126,10 +126,11 @@
                         <label>Armor<input id='armor' ng-model="armor" class="inputs" type="text" style="width: 45px"></label>
                     </div>
                 </div>
-                <div class="single_div" style="margin-right: 5px;" ng-controller="WeaponsCtrl">
+                <div class="single_div" style="margin-right: 5px;" ng-controller="WeaponsCtrl" ng-init="getWeaponsList()">
+                     
                     <div class="in_divs">
                         <label>List</label>
-                            <select name="List" input class="inputs" style="width: 65px;" ng-model="result"></select>
+                            <select id="List" ng-model="chosenWeapon" input class="inputs" style="width: 65px;"  ng-options="weapon.name for weapon in weaponsArray"></select>                                                       
                     </div>
                     <div class="in_divs">
                         <fieldset class="type_fieldset">
@@ -194,10 +195,10 @@
                         <div class="right_stats_row"><label>CHA: {{chosenCharacter.CHA}}</label></div>
                     </div>
                     </div>
-                    <div class="characterBrowse" ng-show="showBrowser">
-                        <select id="charactersSelection" ng-model="chosenCharacter" input class="inputs" ng-options="character.charactersName for character in charactersArray">
+                    <div class="characterBrowse" ng-show="showBrowser"> 
+                        <select id="charactersSelection" ng-model="chosenCharacter" input class="inputs" style="width: 35%;" ng-options="character.charactersName for character in charactersArray">
                         </select>
-                        {{character.charactersName}}
+                        <!--{{character.charactersName}}-->
                     </div>
                 </div>
             </div>

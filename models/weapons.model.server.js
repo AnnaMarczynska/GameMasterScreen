@@ -1,38 +1,37 @@
 var mongoose = require('mongoose');
 
-module.exports = function(){
+var weaponsSchema = new mongoose.Schema({
+    name: String,
+    type: String,
+    DR: Number,
+    DK: Number
+}, {
+    collection: "weapons"
+});
 
-    var weaponsSchema = new mongoose.Schema({
-        name: String, 
-        type: String,
-        DR: Number,
-        DK: Number
-    }, {
-        collection: "weapons"
-    });
+var weaponsModel = mongoose.model('weaponsModel', weaponsSchema);
 
-    var weaponsModel = mongoose.model('weaponsModel', weaponsSchema);
-
+module.exports = function () {
     var api = {
         viewWeapons: viewWeapons,
-        getWeaponsModel: getWeaponsModel
+        getWeaponsList: getWeaponsList,
+        getMongooseModel: getMongooseModel
     }
     return api;
 
-    function viewWeapons(name, type, DR, DK){
+    function viewWeapons(name) {
         return weaponsModel.aggregate([
-            {$match: {name: name/*, type: type, DR: DR, DK: DK*/}},
-            {$out: name},
-            {$sort: 1}
-
-        ], function(err, docs){
-            console.log(docs)
+            { $match: { name: name } }
+        ], function (err, docs) {
             return docs
         });
     }
 
-    function getWeaponsModel(){
-        return weaponsModel;
+    function getWeaponsList() {
+        return weaponsModel.find();
     }
 
+    function getMongooseModel() {
+        return weaponsModel;
+    }
 }
