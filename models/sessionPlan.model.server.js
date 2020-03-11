@@ -12,17 +12,22 @@ var sessionPlanModel = mongoose.model('sessionPlanModel', sessionPlanSchema);
 module.exports = function () {
     var api = {
         viewSessionPlan: viewSessionPlan,
+        getAllSessionPlans: getAllSessionPlans,
         getMongooseModel: getMongooseModel
     }
 
     return api;
 
-    function viewSessionPlan() {
-        return sessionPlanModel.find(
-            function(err, docs){
+    function viewSessionPlan(title) {
+        return sessionPlanModel.aggregate([
+            {match: {title: title}}
+        ], function(err, docs){
                 return docs;
-            }
-        );
+        });
+    }
+
+    function getAllSessionPlans(){
+        return sessionPlanModel.find();
     }
 
     function getMongooseModel() {
