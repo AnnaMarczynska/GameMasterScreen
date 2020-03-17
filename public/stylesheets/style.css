@@ -227,10 +227,29 @@ body
     border-radius:8px;
     margin-top: -5px;
 }
+.sessionPlan
+{
+    width: 48%;
+    margin-left: 5px;
+    border: solid black;
+    
+}
 .session_notes_plan
 {
     width: 48%;
     border: solid black;
+}
+.session_field
+{
+    width: 98;
+    height: 88%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /justify-content: stretch;
+    box-shadow: inset 5px 5px 10px;
+    background-color: rgb(200, 200, 200);
+    margin: 5px 5px 5px 5px;
 }
 .session_notes_field
 {
