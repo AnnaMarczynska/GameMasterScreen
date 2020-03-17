@@ -11,7 +11,6 @@ router.get('/view/:charactersName', (req, res) => {
 });
 
 router.get('/view', (req, res) => {
-    console.log("Service")
     characterSheetModel.getAllCharacters()
         .then(function (result) {
             return res.status(200).json(result)
