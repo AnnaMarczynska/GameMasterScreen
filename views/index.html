@@ -148,13 +148,17 @@
                 </div>
             </div>
             <div class="left_big_row">
-                <div class="session_notes_plan" style="margin-left: 5px;" ng-controller="sessionPlanCtrl">
-                    <div class="session_notes_field">
-                        <div class="session_plan_title_row"><label>Title: </label></div>
-                        <div class="session_plan_notes_row"><label>Plan: </label></div>
+                <div class="sessionPlan" ng-controller="sessionPlanCtrl" ng-init="getAllSessionPlans()">
+                    <div class="session_field" ng-show="showSessionPlanSheet">
+                        <div class="session_plan_title_row"><label>Title: {{chosenPlan.title}} </label></div>
+                        <div class="session_plan_notes_row"><label>Plan: {{chosenPlan.notes}} </label></div>
                     </div>
+                        <div class="sessionPlanBrowse" ng-show="showSessionPlanBrowser"> 
+                            <select id="sessionPlanSelection" ng-model="chosenPlan" input class="inputs" style="width: 35%;" ng-options="plan.title for plan in sessionPlansArray">
+                            </select>
+                        </div>
                     <div class="session_notes_buttons_row">
-                        <button class="session_notes_buttons">BROWSE</button>
+                        <button class="session_notes_buttons" ng-click="toggleSessionPlanBrowser()">BROWSE</button>
                     </div>
                 </div>
                 <div class="session_notes_plan" style="margin-right: 5px;" ng-controller="NotesCtrl">
