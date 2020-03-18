@@ -81,5 +81,8 @@ app.use('/weapons', weaponsRoutes);
 const charactersRouter = require('./services/characterSheet.service.server');
 app.use('/characters', charactersRouter);
 
+const notesRouter = require('./services/notes.service.server');
+app.use('/notes', notesRouter);
+
 module.exports = app;
 
