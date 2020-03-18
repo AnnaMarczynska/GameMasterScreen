@@ -160,15 +160,18 @@
                             <select id="sessionPlanSelection" ng-model="chosenPlan" input class="inputs" ng-options="plan.title for plan in sessionPlansArray">
                             </select>
                         </div>
-
                 </div>
-                <div class="session_notes_plan" style="margin-right: 5px;" ng-controller="NotesCtrl">
-                    <div class="session_notes_field">
-                        <input class="session_notes_inputs" type="text">
+                <div class="session_notes_plan" style="margin-right: 5px;" ng-controller="NotesCtrl" ng-init="getAllNotes()">
+                    <div class="session_notes_field" ng-show="showNotesSheet">
+                        <div class="notes_inputs"><label style="margin-top: 10px; margin-left: 10px;">{{chosenNote.notes}}</label></div>
                     </div>
                     <div class="session_notes_buttons_row">
-                        <button class="session_notes_buttons">BROWSE</button>
-                        <button class="session_notes_buttons">EDIT</button>
+                        <button class="session_notes_buttons" ng-click="toggleNotesBrowser()">BROWSE</button>
+                        <button class="session_notes_buttons" ng-click="toggleNotesBrowser()">ADD</button>
+                    </div>
+                    <div class="notesBrowse" ng-show="showNotesBrowser"> 
+                        <select id="notesSelection" ng-model="chosenNote" input class="inputs" ng-options="notes.title for notes in notesArray">
+                        </select>
                     </div>
                 </div>
             </div>

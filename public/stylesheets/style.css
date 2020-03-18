@@ -254,7 +254,16 @@ body
 {
     margin-top: -500px;
 }
+.notesBrowse
+{
+    margin-top: -500px;
+}
 #sessionPlanSelection
+{
+    margin-left: 74px;
+    width: 55%;
+}
+#notesSelection
 {
     margin-left: 74px;
     width: 55%;
@@ -271,10 +280,13 @@ body
     background-color: rgb(200, 200, 200);
     margin: 5px 5px 5px 5px;
 }
-.session_notes_inputs
+.notes_inputs
 {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     box-shadow: inset 5px 5px 10px;
     background-color: rgb(200, 200, 200);
 }
