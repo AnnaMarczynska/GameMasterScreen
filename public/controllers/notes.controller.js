@@ -6,12 +6,17 @@
 
     function NotesService($http) {
         var api = {
-            viewNotes: viewNotes
+            viewNotes: viewNotes,
+            getAllNotes: getAllNotes
         };
         return api;
 
-        function viewNotes() {
-            return $http.get('/view/notes')
+        function getAllNotes(){
+            return $http.get('notes/view')
+        }
+
+        function viewNotes(title) {
+            return $http.get('/view/notes/'+title)
         }
     }
 
@@ -20,18 +25,25 @@
         .controller("NotesCtrl", NotesCtrl);
 
     function NotesCtrl($scope, NotesService) {
-        $scope.viewNotes = function () {
-            NotesService
-                .viewNotes()
-                .then(
-                    function (response) {
+        $scope.showNotesBrowser = false;
+        $scope.showNotesSheet = true;
+        $scope.result = "";
+        $scope.notesArray = [];
+        $scope.chosenNote;
 
-                    },
-                    function (err) {
-                        $scope.error = err;
-                    }
-                )
+        $scope.toggleNotesBrowser = function(){
+            $scope.showNotesBrowser = !$scope.showNotesBrowser;
+            $scope.showNotesSheet = !$scope.showNotesSheet;
+            console.log($scope.chosenNote)
+        }
+
+        $scope.getAllNotes = function(){
+            NotesService.getAllNotes()
+            .then(
+                function(response){
+                    $scope.notesArray = response.data;
+                }
+            )
         }
     }
-}
-)();
+})();

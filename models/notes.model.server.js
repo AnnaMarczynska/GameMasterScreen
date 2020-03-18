@@ -5,7 +5,7 @@ var notesSchema = new mongoose.Schema({
     notes: String,
     date: String
 }, {
-    collation: "notes"
+    collection: "notes"
 });
 
 var notesModel = mongoose.model('notesModel', notesSchema);
@@ -13,15 +13,24 @@ module.exports = function () {
 
     var api = {
         viewNotes: viewNotes,
+        getAllNotes: getAllNotes,
         getMongooseModel: getMongooseModel
     }
     return api;
 
-    function viewNotes() {
-        notesModel.find();
+    function viewNotes(title) {
+        return notesModel.aggregate([
+            { $match: { title: title } }
+        ], function (err, docs) {
+            return docs
+        });
     }
 
-    function getMongooseModel(){
+    function getAllNotes() {
+        return notesModel.find();
+    }
+
+    function getMongooseModel() {
         return notesModel;
     }
 }
