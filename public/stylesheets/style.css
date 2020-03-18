@@ -232,7 +232,6 @@ body
     width: 48%;
     margin-left: 5px;
     border: solid black;
-    
 }
 .session_notes_plan
 {
@@ -246,10 +245,19 @@ body
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /justify-content: stretch;
+    justify-content: stretch;
     box-shadow: inset 5px 5px 10px;
     background-color: rgb(200, 200, 200);
     margin: 5px 5px 5px 5px;
+}
+.sessionPlanBrowse
+{
+    margin-top: -500px;
+}
+#sessionPlanSelection
+{
+    margin-left: 74px;
+    width: 55%;
 }
 .session_notes_field
 {
