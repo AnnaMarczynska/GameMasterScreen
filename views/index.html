@@ -23,6 +23,7 @@
     <script src="/controllers/pinups.controller.js"></script>
     <script src="/controllers/sessionPlan.controller.js"></script>
     <script src="/controllers/weapons.controller.js"></script>
+    <script src="/javascripts/music.js"></script>
 
 </head>
 <body>
@@ -56,12 +57,15 @@
                     </div>
                 </div>
                 <div class="single_div" style="margin-right: 5px;" ng-controller="MusicCtrl">
-                    <div class="music_div">
-                        <button class="music_btn"><img src="/images/play_b.png" height="50" width="50"></button>
-                    </div>
-                    <div class="music_div">
-                        <button class="music_btn"><img src="/images/pause_b.png" height="50" width="50"></button>
-                    </div>
+                        <audio id="my-audio">
+                        <source src="/music/Assassin.mp3" type="audio/mpeg">
+                        </audio>
+                <div class="music_div">
+                    <button class="music_btn" id="play"><img src="/images/play_b.png" height="50" width="50"></button>
+                </div>
+                <div class="music_div">
+                    <button class="music_btn" id="pause"><img src="/images/pause_b.png" height="50" width="50"></button>
+                </div>
                     <div class="music_div">
                         <button class="music_btn"><img src="/images/stop_b.png" height="50" width="50"></button>
                     </div>
