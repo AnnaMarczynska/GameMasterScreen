@@ -260,11 +260,13 @@ body
 }
 #sessionPlanSelection
 {
+    margin-top: 55px;
     margin-left: 74px;
     width: 55%;
 }
 #notesSelection
 {
+    margin-top: 55px;
     margin-left: 74px;
     width: 55%;
 }
