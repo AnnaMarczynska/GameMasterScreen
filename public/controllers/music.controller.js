@@ -6,13 +6,12 @@
 
     function MusicService($http) {
         var api = {
-            playMusic: playMusic
+            browseMusic: browseMusic
         };
         return api;
 
-        function playMusic() {
-            console.log("La La Laaa!")
-            return $http.get('/play/music')
+        function browseMusic() {
+            return $http.get('/music/browse')
         }
     }
 
@@ -20,17 +19,17 @@
         .module("GMS")
         .controller("MusicCtrl", MusicCtrl);
 
-    function MusicCtrl($scope, DiceService) {
-        $scope.playMusic = function () {
+    function MusicCtrl($scope, MusicService) {
+        $scope.browseMusic = function () {
             MusicService
-                .playMusic()
+                .browseMusic()
                 .then(
-                    function (response) {
-                        /// nie wiem
-                    },
-                    function (err) {
-                        $scope.error = err;
-                    }
+                function (response) {
+                    console.log(response)
+                },
+                function (err) {
+                    $scope.error = err;
+                }
                 )
         }
     }

@@ -1,12 +1,24 @@
+var fs = require('fs');
+const path = require('path');
+
+
 module.exports = function (){
 
     var api = {
-        playMusic: playMusic
+        browseMusic: browseMusic
     }
 
     return api;
 
-    function playMusic(){
-        console.log("La La Laaaa!");
+    function browseMusic(){
+        const musicFolder = './public/music/';
+        const songs = []
+
+        fs.readdirSync(musicFolder).forEach(file => {
+            console.log(file);
+            songs.push(file);
+          });
+
+        return songs;
     }
 }
