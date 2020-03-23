@@ -56,9 +56,9 @@
                         </label>
                     </div>
                 </div>
-            <div class="single_div" style="margin-right: 5px;" ng-controller="MusicCtrl">
+            <div class="single_div" style="margin-right: 5px;" ng-controller="MusicCtrl" ng-init="browseMusic()">
                         <audio id="my-audio">
-                        <source src="/music/Assassin.mp3" type="audio/mpeg">
+                        <source ng-src="{{ songSource | trustUrl }}" type="audio/mpeg">
                         </audio>
                 <div class="music_div">
                     <button class="music_btn" id="play"><img src="/images/play_b.png" height="50" width="50"></button>
@@ -70,7 +70,10 @@
                     <button class="music_btn" id="stop"><img src="/images/stop_b.png" height="50" width="50"></button>
                 </div>
                 <div class="music_div">
-                    <button class="music_btn" ng-click="browseMusic()"><img src="/images/browse_b.png" height="50" width="50"></button>
+                    <button class="music_btn" ng-show="showMusicSheet" ng-click="toggleMusicBrowser()"><img src="/images/browse_b.png" height="50" width="50"></button>
+                    <div class="musicBrowse" ng-show="showMusicBrowser">
+                        <select id="songsBrowser" ng-model="chosenSong" ng-click="selectSong()" style="width:75px" input class="inupts" ng-options="song for song in songsArray"></select>
+                    </div>
                 </div>
             </div>
             </div>

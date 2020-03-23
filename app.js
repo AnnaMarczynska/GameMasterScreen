@@ -87,5 +87,14 @@ app.use('/notes', notesRouter);
 const musicRouter = require('./services/music.service.server');
 app.use('/music', musicRouter);
 
+/*app.filter("trustUrl", function($sce) {
+  return function(Url) {
+      console.log(Url);
+      return $sce.trustAsResourceUrl(Url);
+  };
+});*/
+
+
+
 module.exports = app;
 
