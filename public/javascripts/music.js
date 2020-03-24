@@ -1,6 +1,6 @@
 window.onload = function(){
 
-    var myAudio = document.getElementById('my-audio');
+    var myAudio = document.getElementById('player');
     var play = document.getElementById('play');
     var pause = document.getElementById('pause');
     var stop = document.getElementById('stop');
