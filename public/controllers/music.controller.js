@@ -42,6 +42,10 @@
 
         $scope.selectSong = function(){
             $scope.songSource = './music/'+$scope.chosenSong; 
+            let audio= document.getElementById('player');
+            audio.src = "./music/"+$scope.chosenSong;
+            audio.load();
+            audio.play();
             $scope.showMusicBrowser = false;
             $scope.showMusicSheet = true;
             console.log($scope.chosenSong);

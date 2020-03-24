@@ -57,8 +57,9 @@
                     </div>
                 </div>
             <div class="single_div" style="margin-right: 5px;" ng-controller="MusicCtrl" ng-init="browseMusic()">
-                        <audio id="my-audio">
-                        <source ng-src="{{ songSource | trustUrl }}" type="audio/mpeg">
+                <audio id="player">
+                    <source></source>
+                </audio>
                         </audio>
                 <div class="music_div">
                     <button class="music_btn" id="play"><img src="/images/play_b.png" height="50" width="50"></button>
