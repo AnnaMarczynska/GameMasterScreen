@@ -184,7 +184,17 @@
             </div>
         </div>
         <div class="panels">
-            <div class="right_panels">
+            <div class="buttons_row">
+                <div class="graphics" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
+                    <img id="images"><source></source>
+                    <button class="graphic_button">GRAPHICS</button>
+                </div>
+                <div class="space_div"></div>
+                <div class="back">
+                    <button class ="back_button">BACK</button>
+                </div>
+            </div>
+            <div class="right_panels" style="margin-top: -2px;"> 
                 <div class="sheets_div" ng-controller="CharacterSheetCtrl" ng-init="getAllCharacters()">
                     <div class="sheets_pinups_buttons_row">
                         <button class="sheets_button" ng-click="toggleBrowser()">BROWSE</button>
@@ -218,6 +228,7 @@
                 </div>
             </div>
             <div class="right_panels">
+                
                 <div class="sheets_pinups_buttons_row" ng-controller="PinupsCtrl">
                     <button class="sheets_pinups_button">ADD</button>
                     <button class="sheets_pinups_button">DEL</button>
@@ -226,15 +237,6 @@
                     <input class="sheets_pinups_field" type="text">
                 </div>
             </div>
-            <div class="buttons_row">
-                <div class="graphics" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
-                    <img id="images"><source></source>
-                    <button class="graphic_button">GRAPHICS</button>
-                </div>
-                <div class="space_div"></div>
-                <div class="back">
-                    <button class ="back_button">BACK</button>
-                </div>
             </div>
         </div>
     </div>
