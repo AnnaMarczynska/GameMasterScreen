@@ -4,14 +4,21 @@
         .module("GMS")
         .factory("GraphicsService", GraphicsService);
 
+    angular.module('GMS')
+        .filter('trustUrl', function ($sce) {
+            return function (url) {
+                return $sce.trustAsResourceUrl(url);
+            };
+        });
+
     function GraphicsService($http) {
         var api = {
-            viewGraphics: viewGraphics
+            getAllGraphics: getAllGraphics
         };
         return api;
 
-        function viewGraphics() {
-            return $http.get('graphics/view')
+        function getAllGraphics() {
+            return $http.get('/graphics/view')
         }
     }
 
@@ -20,7 +27,11 @@
         .controller("GraphicsCtrl", GraphicsCtrl)
 
     function GraphicsCtrl($scope, GraphicsService) {
-        $scope.viewGraphics = function () {
+        $scope.graphicsArray = [];
+        $scope.result = "";
+        $scope.chosenGraphic;
+
+        /*$scope.viewGraphics = function () {
             GraphicsService
                 .viewGraphics()
                 .then(
@@ -29,6 +40,17 @@
                     },
                     function (err) {
                         $scope.error = err;
+                    }
+                )
+        }*/
+
+        $scope.getAllGraphics = function () {
+            GraphicsService
+                .getAllGraphics()
+                .then(
+                    function (response) {
+                        $scope.graphicsArray = response.data;
+                        console.log(response.data);
                     }
                 )
         }

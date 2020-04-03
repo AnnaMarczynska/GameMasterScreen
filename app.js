@@ -87,5 +87,8 @@ app.use('/notes', notesRouter);
 const musicRouter = require('./services/music.service.server');
 app.use('/music', musicRouter);
 
+const graphicsRouter = require('./services/graphics.service.server');
+app.use('/graphics', graphicsRouter);
+
 module.exports = app;
 

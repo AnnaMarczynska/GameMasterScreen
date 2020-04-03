@@ -60,7 +60,6 @@
                 <audio id="player">
                     <source></source>
                 </audio>
-                        </audio>
                 <div class="music_div">
                     <button class="music_btn" id="play"><img src="/images/play_b.png" height="50" width="50"></button>
                 </div>
@@ -228,7 +227,8 @@
                 </div>
             </div>
             <div class="buttons_row">
-                <div class="graphics" ng-controller="GraphicsCtrl">
+                <div class="graphics" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
+                    <img id="images"><source></source>
                     <button class="graphic_button">GRAPHICS</button>
                 </div>
                 <div class="space_div"></div>
