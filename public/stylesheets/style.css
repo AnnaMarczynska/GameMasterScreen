@@ -392,6 +392,7 @@ body
 {
 width: 20%;
 height: 105%;
+margin-top: -4px;
 font-family: 'Yeon Sung', cursive;
 font-size: 25px;
 font-style: bold;
@@ -455,20 +456,20 @@ background-color: gray;
 {
     height: 7%;
     display: flex;
+    justify-content: space-evenly;
     margin: 5px 5px 5px 5px;
 }
 .graphics
 {
+    width: 33%;
     display: flex;
-    justify-content: flex-start;
-    flex-grow: 2;
     justify-content: center;
     align-items: center;
     border: solid black;
 }
 .graphic_button
 {
-    width: 50%;
+    width: 60%;
     height: 70%;
     font-family: 'Yeon Sung', cursive;
     font-size: 25px;
@@ -479,14 +480,14 @@ background-color: gray;
 }
 .space_div
 {
-    flex-grow: 1;
+    width: 33%;
 }
 .back
 {
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
     border: solid black;
 }
 .back_button
