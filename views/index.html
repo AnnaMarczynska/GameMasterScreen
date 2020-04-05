@@ -174,7 +174,6 @@
                     </div>
                     <div class="session_notes_buttons_row">
                         <button class="session_notes_buttons" ng-click="toggleNotesBrowser()">BROWSE</button>
-                        <button class="session_notes_buttons" ng-click="toggleNotesBrowser()">ADD</button>
                     </div>
                     <div class="notesBrowse" ng-show="showNotesBrowser"> 
                         <select id="notesSelection" ng-model="chosenNote" input class="inputs" ng-options="notes.title for notes in notesArray">
@@ -184,10 +183,16 @@
             </div>
         </div>
         <div class="panels">
-            <div class="buttons_row">
-                <div class="graphics" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
+            <div class="buttons_row" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
+                <div class="showGraphicsSheet" ></div>             
+                <div class="graphics">
+                <div class="graphics_btn" ng-show="showGraphicsSheet">
                     <img id="images"><source></source>
-                    <button class="graphic_button">GRAPHICS</button>
+                    <button class="graphic_button" ng-click="toggleGraphicsBrowser()" style="width: 150px;">GRAPHICS</button>
+                </div>
+                <div class="musicBrowse" ng-show="showGraphicsBrowser">
+                    <select id="graphicsBrowser" ng-model="chosenGraphic" ng-click="selectGraphic()" style="width:120px" input class="inupts" ng-options="picture for pictures in graphicsArray"></select>
+                </div>   
                 </div>
                 <div class="space_div"></div>
                 <div class="back">
@@ -228,7 +233,6 @@
                 </div>
             </div>
             <div class="right_panels">
-                
                 <div class="sheets_pinups_buttons_row" ng-controller="PinupsCtrl">
                     <button class="sheets_pinups_button">ADD</button>
                     <button class="sheets_pinups_button">DEL</button>
