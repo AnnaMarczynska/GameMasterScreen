@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="pl" ng-app="GMS">
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>Ekran Mistrza Gry</title>
     <meta name="description" content="Aplikacja stanowi pomoc dla Mistrzów Gry
-    podczas prowadzenia sesji RPG"/>
-    <meta name="keywords" content="RPG, ekran mistrza gry, mistrz gry, MG"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+    podczas prowadzenia sesji RPG" />
+    <meta name="keywords" content="RPG, ekran mistrza gry, mistrz gry, MG" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
     <script src="/javascripts/angular.js"></script>
     <script src="/javascripts/angular-route.js"></script>
@@ -26,225 +27,261 @@
     <script src="/javascripts/music.js"></script>
 
 </head>
+
 <body>
-<div class="container">
-    <div class="screen">
-        <div class="panels">
-            <div class="row">
-                <div class="single_div" id="rollDiv" style="margin-left: 5px;" ng-controller="DiceCtrl">
-                    <div class="in_divs">
-                        <label>DT</label>
-                        <select id="DT" ng-model="dt" input class="inputs">
-                            <option value="4">D4</option>
-                            <option value="6">D6</option>
-                            <option value="10">D10</option>
-                            <option value="100">D100</option>
-                        </select>
-                    </div>
-                    <div class="in_divs">
-                        <label>DR<input id="DR" ng-model="dr" class="inputs" type="number" min="1" max="10"></label>
-                    </div>
-                    <div class="in_divs">
-                        <label>DK<input id="DK" ng-model="dk" class="inputs" type="number" min="1" max="10"></label>
-                    </div>
-                    <div class="in_divs" id="rollButtonDiv">
-                        <button id="rollButton" class="roll_button" ng-click="rollDice()">ROLL</button>
-                    </div>
-                    <div class="in_divs">
-                        <label>Score 
-                            <input id="Score" ng-model="result" class="inputs" type="text" style="width: 55px">
-                        </label>
-                    </div>
-                </div>
-            <div class="single_div" style="margin-right: 5px;" ng-controller="MusicCtrl" ng-init="browseMusic()">
-                <audio id="player">
-                    <source></source>
-                </audio>
-                <div class="music_div">
-                    <button class="music_btn" id="play"><img src="/images/play_b.png" height="50" width="50"></button>
-                </div>
-                <div class="music_div">
-                    <button class="music_btn" id="pause"><img src="/images/pause_b.png" height="50" width="50"></button>
-                </div>
-                <div class="music_div">
-                    <button class="music_btn" id="stop"><img src="/images/stop_b.png" height="50" width="50"></button>
-                </div>
-                <div class="music_div">
-                    <button class="music_btn" ng-show="showMusicSheet" ng-click="toggleMusicBrowser()"><img src="/images/browse_b.png" height="50" width="50"></button>
-                    <div class="musicBrowse" ng-show="showMusicBrowser">
-                        <select id="songsBrowser" ng-model="chosenSong" ng-click="selectSong()" style="width:75px" input class="inupts" ng-options="song for song in songsArray"></select>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="names_row" ng-controller="NameCtrl">
-                <fieldset class="names_fieldset">
-                <legend>Names generator</legend>
-                <div class="whole_name_row">
-                    <div class="names_div">
-                        <label><input type="radio" ng-model="category" value="fantasy">Fantasy</label>
-                        <label><input type="radio" ng-model="category" value="japanese">Japanese</label>
-                        <label><input type="radio" ng-model="category" value="mythology">Mythology</label>
-                        <label><input type="radio" ng-model="category" value="semic">Semic</label>
-                        <label><input type="radio" ng-model="category" value="irish">Irish</label>
-                        <label><input type="radio" ng-model="category" value="scottish">Scotthis</label>
-                    </div>
-                    <div class="gender_type_div">
-                    <fieldset class="gender_fieldset">
-                        <legend>Gender</legend>
-                        <div class="gender_buttons">
-                        <input type="radio" name="male-female" id="female" ng-model="gender" value="F">
-                        <label for="female">F</label>
-                        <input type="radio" name="male-female" id="male" ng-model="gender" value="M">
-                        <label for="male">M</label>
-                        </div>
-                    </fieldset>
-                    </div>
-                    <div class="names_go_button_div">
-                        <button class="names_go_button" ng-click="generateName()">GO</button>
-                    </div>
-                    <div class="name_output_div">
-                        The name is: 
-                        <input class="inputs" type="text" ng-model="result">
-                    </div>
-                </div>
-                </fieldset>
-            </div>
-            <div class="row">
-                <div class="single_div" style="margin-left: 5px;" ng-controller="EnemyCtrl">
-                    <div class="in_divs">
-                        <label>Diff</label>
-                        <select id="Level" ng-model="level" input class="inputs" style="width: 65px;">
-                            <option value ="easy">easy</option>
-                            <option value ="medium">medium</option>
-                            <option value ="high">high</option>
-                        </select>
-                    </div>
-                    <div class="in_divs">
-                        <button id='enemyGenerateButton' class="roll_button" ng-click="generateEnemy()" style="margin-left: 10px;">GO</button>
-                    </div>
-                    <div class="in_divs">
-                        <label>HP<input id='HP' ng-model="hp" class="inputs" type="text" style="width: 45px"></label>
-                    </div>
-                    <div class="in_divs">
-                        <label>STR<input id ='STR' ng-model="str" class="inputs" type="text" style="width: 45px"></label>
-                    </div>
-                    <div class="in_divs">
-                        <label>Armor<input id='armor' ng-model="armor" class="inputs" type="text" style="width: 45px"></label>
-                    </div>
-                </div>
-                <div class="single_div" style="margin-right: 5px;" ng-controller="WeaponsCtrl" ng-init="getWeaponsList()">
-                     
-                    <div class="in_divs">
-                        <label>List</label>
-                            <select id="List" ng-model="chosenWeapon" input class="inputs" style="width: 65px;"  ng-options="weapon.name for weapon in weaponsArray"></select>                                                       
-                    </div>
-                    <div class="in_divs">
-                        <fieldset class="type_fieldset">
-                        <legend>Type</legend>
-                        <label><input type="checkbox" ng-model="type">M</label>
-                        <label><input type="checkbox" ng-model="type">R</label>
-                    </fieldset>
-                    </div>
-                    <div class="in_divs">
-                        <label>DR<input class="inputs" type="text" style="width: 45px" value="{{chosenWeapon.DR}}"></label>
-                    </div>
-                    <div class="in_divs">
-                        <label>DK<input class="inputs" type="text" style="width: 45px" value="{{chosenWeapon.DK}}"></label>
-                    </div>
-                </div>
-            </div>
-            <div class="left_big_row">
-                <div class="sessionPlan" ng-controller="sessionPlanCtrl" ng-init="getAllSessionPlans()">
-                    <div class="session_field" ng-show="showSessionPlanSheet">
-                        <div class="session_plan_title_row"><label>Title: {{chosenPlan.title}} </label></div>
-                        <div class="session_plan_notes_row"><label>Plan: {{chosenPlan.notes}} </label></div>
-                    </div>
-                    <div class="session_notes_buttons_row">
-                        <button class="session_notes_buttons" ng-click="toggleSessionPlanBrowser()">BROWSE</button>
-                    </div>
-                        <div class="sessionPlanBrowse" ng-show="showSessionPlanBrowser"> 
-                            <select id="sessionPlanSelection" ng-model="chosenPlan" input class="inputs" ng-options="plan.title for plan in sessionPlansArray">
+    <div class="container">
+        <div class="screen">
+            <div class="panels">
+                <div class="row">
+                    <div class="single_div" id="rollDiv" style="margin-left: 5px;" ng-controller="DiceCtrl">
+                        <div class="in_divs">
+                            <label>DT</label>
+                            <select id="DT" ng-model="dt" input class="inputs">
+                                <option value="4">D4</option>
+                                <option value="6">D6</option>
+                                <option value="10">D10</option>
+                                <option value="100">D100</option>
                             </select>
                         </div>
+                        <div class="in_divs">
+                            <label>DR<input id="DR" ng-model="dr" class="inputs" type="number" min="1" max="10"></label>
+                        </div>
+                        <div class="in_divs">
+                            <label>DK<input id="DK" ng-model="dk" class="inputs" type="number" min="1" max="10"></label>
+                        </div>
+                        <div class="in_divs" id="rollButtonDiv">
+                            <button id="rollButton" class="roll_button" ng-click="rollDice()">ROLL</button>
+                        </div>
+                        <div class="in_divs">
+                            <label>Score
+                                <input id="Score" ng-model="result" class="inputs" type="text" style="width: 55px">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="single_div" style="margin-right: 5px;" ng-controller="MusicCtrl"
+                        ng-init="browseMusic()">
+                        <audio id="player">
+                            <source>
+                            </source>
+                        </audio>
+                        <div class="music_div">
+                            <button class="music_btn" id="play"><img src="/images/play_b.png" height="50"
+                                    width="50"></button>
+                        </div>
+                        <div class="music_div">
+                            <button class="music_btn" id="pause"><img src="/images/pause_b.png" height="50"
+                                    width="50"></button>
+                        </div>
+                        <div class="music_div">
+                            <button class="music_btn" id="stop"><img src="/images/stop_b.png" height="50"
+                                    width="50"></button>
+                        </div>
+                        <div class="music_div">
+                            <button class="music_btn" ng-show="showMusicSheet" ng-click="toggleMusicBrowser()"><img
+                                    src="/images/browse_b.png" height="50" width="50"></button>
+                            <div class="musicBrowse" ng-show="showMusicBrowser">
+                                <select id="songsBrowser" ng-model="chosenSong" ng-click="selectSong()"
+                                    style="width:75px" input class="inupts"
+                                    ng-options="song for song in songsArray"></select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="session_notes_plan" style="margin-right: 5px;" ng-controller="NotesCtrl" ng-init="getAllNotes()">
-                    <div class="session_notes_field" ng-show="showNotesSheet">
-                        <div class="notes_inputs"><label style="margin-top: 10px; margin-left: 10px;">{{chosenNote.notes}}</label></div>
+                <div class="names_row" ng-controller="NameCtrl">
+                    <fieldset class="names_fieldset">
+                        <legend>Names generator</legend>
+                        <div class="whole_name_row">
+                            <div class="names_div">
+                                <label><input type="radio" ng-model="category" value="fantasy">Fantasy</label>
+                                <label><input type="radio" ng-model="category" value="japanese">Japanese</label>
+                                <label><input type="radio" ng-model="category" value="mythology">Mythology</label>
+                                <label><input type="radio" ng-model="category" value="semic">Semic</label>
+                                <label><input type="radio" ng-model="category" value="irish">Irish</label>
+                                <label><input type="radio" ng-model="category" value="scottish">Scotthis</label>
+                            </div>
+                            <div class="gender_type_div">
+                                <fieldset class="gender_fieldset">
+                                    <legend>Gender</legend>
+                                    <div class="gender_buttons">
+                                        <input type="radio" name="male-female" id="female" ng-model="gender" value="F">
+                                        <label for="female">F</label>
+                                        <input type="radio" name="male-female" id="male" ng-model="gender" value="M">
+                                        <label for="male">M</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="names_go_button_div">
+                                <button class="names_go_button" ng-click="generateName()">GO</button>
+                            </div>
+                            <div class="name_output_div">
+                                The name is:
+                                <input class="inputs" type="text" ng-model="result">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="row">
+                    <div class="single_div" style="margin-left: 5px;" ng-controller="EnemyCtrl">
+                        <div class="in_divs">
+                            <label>Diff</label>
+                            <select id="Level" ng-model="level" input class="inputs" style="width: 65px;">
+                                <option value="easy">easy</option>
+                                <option value="medium">medium</option>
+                                <option value="high">high</option>
+                            </select>
+                        </div>
+                        <div class="in_divs">
+                            <button id='enemyGenerateButton' class="roll_button" ng-click="generateEnemy()"
+                                style="margin-left: 10px;">GO</button>
+                        </div>
+                        <div class="in_divs">
+                            <label>HP<input id='HP' ng-model="hp" class="inputs" type="text"
+                                    style="width: 45px"></label>
+                        </div>
+                        <div class="in_divs">
+                            <label>STR<input id='STR' ng-model="str" class="inputs" type="text"
+                                    style="width: 45px"></label>
+                        </div>
+                        <div class="in_divs">
+                            <label>Armor<input id='armor' ng-model="armor" class="inputs" type="text"
+                                    style="width: 45px"></label>
+                        </div>
                     </div>
-                    <div class="session_notes_buttons_row">
-                        <button class="session_notes_buttons" ng-click="toggleNotesBrowser()">BROWSE</button>
+                    <div class="single_div" style="margin-right: 5px;" ng-controller="WeaponsCtrl"
+                        ng-init="getWeaponsList()">
+
+                        <div class="in_divs">
+                            <label>List</label>
+                            <select id="List" ng-model="chosenWeapon" input class="inputs" style="width: 65px;"
+                                ng-options="weapon.name for weapon in weaponsArray"></select>
+                        </div>
+                        <div class="in_divs">
+                            <fieldset class="type_fieldset">
+                                <legend>Type</legend>
+                                <label><input type="checkbox" ng-model="type">M</label>
+                                <label><input type="checkbox" ng-model="type">R</label>
+                            </fieldset>
+                        </div>
+                        <div class="in_divs">
+                            <label>DR<input class="inputs" type="text" style="width: 45px"
+                                    value="{{chosenWeapon.DR}}"></label>
+                        </div>
+                        <div class="in_divs">
+                            <label>DK<input class="inputs" type="text" style="width: 45px"
+                                    value="{{chosenWeapon.DK}}"></label>
+                        </div>
                     </div>
-                    <div class="notesBrowse" ng-show="showNotesBrowser"> 
-                        <select id="notesSelection" ng-model="chosenNote" input class="inputs" ng-options="notes.title for notes in notesArray">
-                        </select>
+                </div>
+                <div class="left_big_row">
+                    <div class="sessionPlan" ng-controller="sessionPlanCtrl" ng-init="getAllSessionPlans()">
+                        <div class="session_field" ng-show="showSessionPlanSheet">
+                            <div class="session_plan_title_row"><label>Title: {{chosenPlan.title}} </label></div>
+                            <div class="session_plan_notes_row"><label>Plan: {{chosenPlan.notes}} </label></div>
+                        </div>
+                        <div class="session_notes_buttons_row">
+                            <button class="session_notes_buttons" ng-click="toggleSessionPlanBrowser()">BROWSE</button>
+                        </div>
+                        <div class="sessionPlanBrowse" ng-show="showSessionPlanBrowser">
+                            <select id="sessionPlanSelection" ng-model="chosenPlan" input class="inputs"
+                                ng-options="plan.title for plan in sessionPlansArray">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="session_notes_plan" style="margin-right: 5px;" ng-controller="NotesCtrl"
+                        ng-init="getAllNotes()">
+                        <div class="session_notes_field" ng-show="showNotesSheet">
+                            <div class="notes_inputs"><label
+                                    style="margin-top: 10px; margin-left: 10px;">{{chosenNote.notes}}</label></div>
+                        </div>
+                        <div class="session_notes_buttons_row">
+                            <button class="session_notes_buttons" ng-click="toggleNotesBrowser()">BROWSE</button>
+                        </div>
+                        <div class="notesBrowse" ng-show="showNotesBrowser">
+                            <select id="notesSelection" ng-model="chosenNote" input class="inputs"
+                                ng-options="notes.title for notes in notesArray">
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="panels">
-            <div class="buttons_row" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
-                <div class="showsGraphicsSheet"></div>             
-                <div class="graphics">
-                <div class="graphics_btn" ng-show="showGraphicsSheet">
-                    <img id="images"><source></source>
-                    <button class="graphic_button" ng-click="toggleGraphicsBrowser()" style="width: 150px;">GRAPHICS</button>
+            <div class="panels">
+                <div class="buttons_row" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
+                    <div class="showsGraphicsSheet"></div>
+                    <div class="graphics">
+                        <div class="graphics_btn" ng-show="showGraphicsSheet">
+                            <img id="images">
+                            <source>
+                            </source>
+                            <button class="graphic_button" ng-click="toggleGraphicsBrowser()"
+                                style="width: 150px;">GRAPHICS</button>
+                        </div>
+                        <div class="graphicBrowse" ng-show="showGraphicsBrowser">
+                            <select id="graphicsBrowser" ng-model="chosenGraphic" ng-click="selectGraphic()"
+                                style="width:120px" input class="inupts"
+                                ng-options="picture for pictures in graphicsArray"></select>
+                        </div>
+                    </div>
+                    <div class="space_div"></div>
+                    <div class="back">
+                        <button class="back_button">BACK</button>
+                    </div>
                 </div>
-                <div class="graphicBrowse" ng-show="showGraphicsBrowser">
-                    <select id="graphicsBrowser" ng-model="chosenGraphic" ng-click="selectGraphic()" style="width:120px" input class="inupts" ng-options="picture for pictures in graphicsArray"></select>
-                </div>   
+                <div class="right_panels" style="margin-top: -2px;">
+                    <div class="sheets_div" ng-controller="CharacterSheetCtrl" ng-init="getAllCharacters()">
+                        <div class="sheets_pinups_buttons_row">
+                            <button class="sheets_button" ng-click="toggleBrowser()">BROWSE</button>
+                        </div>
+                        <div class="all_sheets" ng-show="showSheet">
+                            <div class="sheets_left_panel">
+                                <div class="left_stats_row"><label>Character's name:
+                                        {{chosenCharacter.charactersName}}</label></div>
+                                <div class="left_stats_row"><label>Player's name:
+                                        {{chosenCharacter.playersName}}</label></div>
+                                <div class="left_stats_row"><label>Proffesion: {{chosenCharacter.proffesion}}</label>
+                                </div>
+                                <div class="left_stats_row"><label>Age: {{chosenCharacter.age}}</label></div>
+                                <div class="left_stats_row"><label>Advantages: {{chosenCharacter.advantages}}</label>
+                                </div>
+                                <div class="left_stats_row"><label>Disadvantages:
+                                        {{chosenCharacter.disadvantages}}</label></div>
+                                <div class="notes_stats_row"><label>Notes: {{chosenCharacter.notes}}</label></div>
+                            </div>
+                            <div class="sheets_right_panel" type="text">
+                                <div class="right_stats_row"><label>HP: {{chosenCharacter.HP}}</label></div>
+                                <div class="right_stats_row"><label>Armor: {{chosenCharacter.armor}}</label></div>
+                                <div class="right_stats_row"><label>STR: {{chosenCharacter.STR}}</label></div>
+                                <div class="right_stats_row"><label>CON: {{chosenCharacter.CON}}</label></div>
+                                <div class="right_stats_row"><label>DEX: {{chosenCharacter.DEX}}</label></div>
+                                <div class="right_stats_row"><label>INT: {{chosenCharacter.INT}}</label></div>
+                                <div class="right_stats_row"><label>WIS: {{chosenCharacter.WIS}}</label></div>
+                                <div class="right_stats_row"><label>CHA: {{chosenCharacter.CHA}}</label></div>
+                            </div>
+                        </div>
+                        <div class="characterBrowse" ng-show="showBrowser">
+                            <select id="charactersSelection" ng-model="chosenCharacter" input class="inputs"
+                                style="width: 35%;"
+                                ng-options="character.charactersName for character in charactersArray">
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div class="space_div"></div>
-                <div class="back">
-                    <button class ="back_button">BACK</button>
-                </div>
-            </div>
-            <div class="right_panels" style="margin-top: -2px;"> 
-                <div class="sheets_div" ng-controller="CharacterSheetCtrl" ng-init="getAllCharacters()">
+                <div class="right_panels">
+                <div class="pinups_div" ng-controller="PinupsCtrl" ng-init="getPinupsList()">
                     <div class="sheets_pinups_buttons_row">
-                        <button class="sheets_button" ng-click="toggleBrowser()">BROWSE</button>
+                        <button class="sheets_pinups_button">ADD</button>
                     </div>
-                    <div class="all_sheets" ng-show="showSheet">
-                    <div class="sheets_left_panel">
-                        <div class="left_stats_row"><label>Character's name: {{chosenCharacter.charactersName}}</label></div>
-                        <div class="left_stats_row"><label>Player's name: {{chosenCharacter.playersName}}</label></div>
-                        <div class="left_stats_row"><label>Proffesion: {{chosenCharacter.proffesion}}</label></div>
-                        <div class="left_stats_row"><label>Age: {{chosenCharacter.age}}</label></div>
-                        <div class="left_stats_row"><label>Advantages: {{chosenCharacter.advantages}}</label></div>
-                        <div class="left_stats_row"><label>Disadvantages: {{chosenCharacter.disadvantages}}</label></div>
-                        <div class="notes_stats_row"><label>Notes: {{chosenCharacter.notes}}</label></div>
+                    <div class="pinups_sheet" ng-show="showPinupsSheet">
+
                     </div>
-                    <div class="sheets_right_panel" type="text">
-                        <div class="right_stats_row"><label>HP: {{chosenCharacter.HP}}</label></div>
-                        <div class="right_stats_row"><label>Armor: {{chosenCharacter.armor}}</label></div>
-                        <div class="right_stats_row"><label>STR: {{chosenCharacter.STR}}</label></div>
-                        <div class="right_stats_row"><label>CON: {{chosenCharacter.CON}}</label></div>
-                        <div class="right_stats_row"><label>DEX: {{chosenCharacter.DEX}}</label></div>
-                        <div class="right_stats_row"><label>INT: {{chosenCharacter.INT}}</label></div>
-                        <div class="right_stats_row"><label>WIS: {{chosenCharacter.WIS}}</label></div>
-                        <div class="right_stats_row"><label>CHA: {{chosenCharacter.CHA}}</label></div>
-                    </div>
-                    </div>
-                    <div class="characterBrowse" ng-show="showBrowser"> 
-                        <select id="charactersSelection" ng-model="chosenCharacter" input class="inputs" style="width: 35%;" ng-options="character.charactersName for character in charactersArray">
-                        </select>
+                    <div class="pinupsBrowser" ng-show="showPinupsBrowser">
+                        <select id="pinupSelection" ng-model="chosenPinup" input class="inputs" ng-option="pinups.value for pinups in pinupsArray"></select>
                     </div>
                 </div>
-            </div>
-            <div class="right_panels" ng-controller="PinupsCtrl" ng-init="getPinupsList()">
-                <div class="sheets_pinups_buttons_row" ng-show="showSheet">
-                    <button class="sheets_pinups_button">ADD</button>
                 </div>
-                <!--<div class="pinups_div" ng-show="showSheet">
-                    
-                </div>-->
-                <div class="pinupsBrowser" ng-show="showPinupsBrowser">
-                    <select id="pinupSelection" ng-model="chosenPinup" input class="inputs" ng-option="pinups.value for pinups in pinupsArray"></select>
-                </div>
-            </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
 </body>
+
 </html>
