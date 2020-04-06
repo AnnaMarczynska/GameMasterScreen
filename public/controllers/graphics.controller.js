@@ -33,6 +33,7 @@
         $scope.result = "";
         $scope.chosenGraphic;
         $scope.graphicSource = './graphics/Dolgoldur.jpg'
+        $scope.image ="";
 
         $scope.toggleGraphicsBrowser = function(){
             $scope.showGraphicsBrowser = !$scope.showGraphicsBrowser;
@@ -51,7 +52,7 @@
             console.log($scope.graphicSource);
         }
 
-        $scope.displayGraphic = function(){
+        $scope.displayGraphic = function(image){
             window.open($scope.graphicSource);
             image.load();
         }

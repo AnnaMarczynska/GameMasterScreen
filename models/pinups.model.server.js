@@ -28,7 +28,7 @@ module.exports = function () {
 
     function viewPinups(value) {
         return pinupsModel.aggregate([
-            { match: { value: value } }
+            { $match: { value: value } }
         ], function (err, docs) {
             return docs;
         });

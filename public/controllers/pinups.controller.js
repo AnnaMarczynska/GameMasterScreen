@@ -12,12 +12,12 @@
         return api;
 
         function viewPinups(value) {
-            return $http.get('view/pinups' + value)
+            return $http.get('/view/pinups/'+value)
         }
 
 
         function getPinupsList() {
-            return $http.get('pinups/view')
+            return $http.get('/pinups/view')
         }
     }
 
@@ -30,7 +30,7 @@
         $scope.showPinupsSheet = true;
         $scope.result = "";
         $scope.pinupsArray = [];
-        $scope.chosenPinup;
+        $scope.chosenPinup = "";
 
         $scope.togglePinupsBrowser = function () {
             $scope.showPinupsBrowser = !$scope.showPinupsBrowser;
@@ -43,6 +43,7 @@
                 .then(
                     function (response) {
                         $scope.pinupsArray = response.data;
+                        console.log($scope.pinupsArray);
                     }
                 )
         }
