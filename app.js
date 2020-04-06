@@ -90,5 +90,9 @@ app.use('/music', musicRouter);
 const graphicsRouter = require('./services/graphics.service.server');
 app.use('/graphics', graphicsRouter);
 
+const pinupsRouter = require('./services/pinups.service.server');
+app.use('/pinups', pinupsRouter);
+
+
 module.exports = app;
 

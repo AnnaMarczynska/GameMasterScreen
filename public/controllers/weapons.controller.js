@@ -28,18 +28,7 @@
         $scope.result = ""
         $scope.weaponsArray = [];
         $scope.chosenWeapon;
-        /*$scope.viewWeapons = function () {
-            WeaponsService
-                .viewWeapons($scope.name, $scope.type)
-                .then(
-                    function (response) {
-                        $scope.result = response.data
-                    },
-                    function (err) {
-                        $scope.error = err
-                    }
-                )
-        }*/
+
         $scope.getWeaponsList = function () {
             WeaponsService.getWeaponsList()
                 .then(

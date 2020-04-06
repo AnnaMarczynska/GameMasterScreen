@@ -184,13 +184,13 @@
         </div>
         <div class="panels">
             <div class="buttons_row" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
-                <div class="showGraphicsSheet" ></div>             
+                <div class="showsGraphicsSheet"></div>             
                 <div class="graphics">
                 <div class="graphics_btn" ng-show="showGraphicsSheet">
                     <img id="images"><source></source>
                     <button class="graphic_button" ng-click="toggleGraphicsBrowser()" style="width: 150px;">GRAPHICS</button>
                 </div>
-                <div class="musicBrowse" ng-show="showGraphicsBrowser">
+                <div class="graphicBrowse" ng-show="showGraphicsBrowser">
                     <select id="graphicsBrowser" ng-model="chosenGraphic" ng-click="selectGraphic()" style="width:120px" input class="inupts" ng-options="picture for pictures in graphicsArray"></select>
                 </div>   
                 </div>
@@ -228,17 +228,18 @@
                     <div class="characterBrowse" ng-show="showBrowser"> 
                         <select id="charactersSelection" ng-model="chosenCharacter" input class="inputs" style="width: 35%;" ng-options="character.charactersName for character in charactersArray">
                         </select>
-                        <!--{{character.charactersName}}-->
                     </div>
                 </div>
             </div>
-            <div class="right_panels">
-                <div class="sheets_pinups_buttons_row" ng-controller="PinupsCtrl">
+            <div class="right_panels" ng-controller="PinupsCtrl" ng-init="getPinupsList()">
+                <div class="sheets_pinups_buttons_row" ng-show="showSheet">
                     <button class="sheets_pinups_button">ADD</button>
-                    <button class="sheets_pinups_button">DEL</button>
                 </div>
-                <div class="pinups_div">
-                    <input class="sheets_pinups_field" type="text">
+                <!--<div class="pinups_div" ng-show="showSheet">
+                    
+                </div>-->
+                <div class="pinupsBrowser" ng-show="showPinupsBrowser">
+                    <select id="pinupSelection" ng-model="chosenPinup" input class="inputs" ng-option="pinups.value for pinups in pinupsArray"></select>
                 </div>
             </div>
             </div>

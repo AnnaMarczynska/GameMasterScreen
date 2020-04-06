@@ -1,10 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-var PinupsModel = require("../models/pinups.model.server")();
+var pinupsModel = require("../models/pinups.model.server.js")();
 
-router.get('/view/pinups', (req, res) => {
-    return res.status(200).json(PinupsModel.viewPinups())
+router.get('/view/:value', (req, res) => {
+    pinupsModel.viewPinups(req.params.value)
+        .then(function (result) {
+            return res.status(200).json(result);
+        });
+});
+
+router.get('/view', (req, res) => {
+    pinupsModel.getPinupsList()
+    .then(function (result) {
+        return res.status(200).json(result)
+        })
 });
 
 module.exports = router;

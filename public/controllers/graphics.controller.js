@@ -41,15 +41,19 @@
         }
 
         $scope.selectGraphic = function(){
-            //tu będzie komenda nowego okna?
             $scope.graphicSource = './graphics/'+$scope.chosenGraphic; 
             let image = document.getElementById('images');
             image.src = "./graphics/"+$scope.chosenGraphic;
-            image.onload();
+            $scope.displayGraphic();
             $scope.showGraphicsBrowser = false;
             $scope.showGraphicsSheet = true;
             console.log($scope.chosenGraphic);
             console.log($scope.graphicSource);
+        }
+
+        $scope.displayGraphic = function(){
+            window.open($scope.graphicSource);
+            image.load();
         }
 
         $scope.getAllGraphics = function () {

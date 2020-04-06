@@ -45,17 +45,5 @@
                     }
                 )
         }
-        /*$scope.viewSessionPlan = function(){
-            sessionPlanService
-                .viewSessionPlan()
-                .then(
-                    function(respone){
-
-                    },
-                    function(err){
-                        $scope.error = err;
-                    }
-                )
-        }*/
     }
 })();

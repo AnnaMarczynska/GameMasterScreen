@@ -1,35 +1,48 @@
-(function(){
+(function () {
 
     angular
         .module("GMS")
         .factory("PinupsService", PinupsService);
 
-    function PinupsService($http){
+    function PinupsService($http) {
         var api = {
-            viewPinups: viewPinups
+            viewPinups: viewPinups,
+            getPinupsList: getPinupsList
         };
         return api;
 
-        function viewPinups(){
-            console.log()
-            return $http.get('/pinups/view')
+        function viewPinups(value) {
+            return $http.get('view/pinups' + value)
+        }
+
+
+        function getPinupsList() {
+            return $http.get('pinups/view')
         }
     }
 
-    angular 
+    angular
         .module("GMS")
         .controller("PinupsCtrl", PinupsCtrl);
 
-    function PinupsCtrl($scope, PinupsService){
-        $scope.viewPinups = function(){
-            PinupsService
-                .viewPinups()
-                .then(
-                    function(response){
+    function PinupsCtrl($scope, PinupsService) {
+        $scope.showPinupsBrowser = false;
+        $scope.showPinupsSheet = true;
+        $scope.result = "";
+        $scope.pinupsArray = [];
+        $scope.chosenPinup;
 
-                    },
-                    function(err){
-                        $scope.error = err;
+        $scope.togglePinupsBrowser = function () {
+            $scope.showPinupsBrowser = !$scope.showPinupsBrowser;
+            $scope.showPinupsSheet = !$scope.showPinupsSheet;
+            console.log($scope.chosenPinup)
+        }
+
+        $scope.getPinupsList = function () {
+            PinupsService.getPinupsList()
+                .then(
+                    function (response) {
+                        $scope.pinupsArray = response.data;
                     }
                 )
         }
