@@ -268,12 +268,12 @@
                 <div class="right_panels">
                 <div class="pinups_div" ng-controller="PinupsCtrl" ng-init="getPinupsList()">
                     <div class="sheets_pinups_buttons_row">
-                        <button class="sheets_pinups_button">ADD</button>
+                        <button class="sheets_pinups_button" ng-click="togglePinupsBrowser()">ADD</button>
                     </div>
                     <div class="pinups_sheet" ng-show="showPinupsSheet">
 
                     </div>
-                    <div class="pinupsBrowser" ng-show="showPinupsBrowser">
+                    <div class="pinupsBrowser" ng-show="showPinupsBrowser" style="margin-top: -110px;">
                         <select id="pinupSelection" ng-model="chosenPinup" input class="inputs" ng-option="pinups.value for pinups in pinupsArray"></select>
                     </div>
                 </div>

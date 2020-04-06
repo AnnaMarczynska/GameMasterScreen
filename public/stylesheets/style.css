@@ -470,6 +470,12 @@ background-color: gray;
     box-shadow: inset 5px 5px 10px;
     background-color: rgb(200, 200, 200);
 }
+#pinupSelection
+{
+    width: 125px;
+    height: 25px;
+    margin-left: 285px;
+}
 .graphics
 {
     width: 33%;
