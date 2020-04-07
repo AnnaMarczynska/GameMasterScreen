@@ -208,9 +208,6 @@
                 <div class="buttons_row" ng-controller="GraphicsCtrl" ng-init="getAllGraphics()">
                     <div class="graphics">
                         <div class="graphics_btn" ng-show="showGraphicsSheet">
-                            <!--<img id="images">
-                            <source>
-                            </source>-->
                             <button class="graphic_button" ng-click="toggleGraphicsBrowser()"
                                 style="width: 150px;">GRAPHICS</button>
                         </div>
@@ -270,7 +267,12 @@
                         <button class="sheets_pinups_button" ng-click="togglePinupsBrowser()">ADD</button>
                     </div>
                     <div class="pinups_sheet" ng-show="showPinupsSheet">
-
+                        <div class="pinupDiv"></div>
+                        <div class="pinupDiv"></div>
+                        <div class="pinupDiv"></div>
+                        <div class="pinupDiv"></div>
+                        <div class="pinupDiv"></div>
+                        <div class="pinupDiv"></div>
                     </div>
                     <div class="pinupsBrowser" ng-show="showPinupsBrowser" style="margin-top: -110px;">
                         <select id="pinupSelection" ng-model="chosenPinup" input class="inputs" ng-options="pinup.value for pinup in pinupsArray"></select>

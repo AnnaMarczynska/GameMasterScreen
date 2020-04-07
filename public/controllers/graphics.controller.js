@@ -33,7 +33,6 @@
         $scope.result = "";
         $scope.chosenGraphic;
         $scope.graphicSource = './graphics/Dolgoldur.jpg'
-        //$scope.image ="";
 
         $scope.toggleGraphicsBrowser = function(){
             $scope.showGraphicsBrowser = !$scope.showGraphicsBrowser;
@@ -43,8 +42,6 @@
 
         $scope.selectGraphic = function(){
             $scope.graphicSource = './graphics/'+$scope.chosenGraphic; 
-            //let image = document.getElementById('images');
-            //image.src = "./graphics/"+$scope.chosenGraphic;
             $scope.displayGraphic();
             $scope.showGraphicsBrowser = false;
             $scope.showGraphicsSheet = true;

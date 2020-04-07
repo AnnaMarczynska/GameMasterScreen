@@ -41,4 +41,6 @@ module.exports = function () {
     function getMongooseModel() {
         return pinupsModel;
     }
+
+
 }

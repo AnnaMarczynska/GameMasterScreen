@@ -12,7 +12,7 @@
         return api;
 
         function viewPinups(value) {
-            return $http.get('/view/pinups/'+value)
+            return $http.get('/view/pinups/' + value)
         }
 
 
@@ -36,6 +36,7 @@
             $scope.showPinupsBrowser = !$scope.showPinupsBrowser;
             $scope.showPinupsSheet = !$scope.showPinupsSheet;
             console.log($scope.chosenPinup)
+            $scope.displayPinup();
         }
 
         $scope.getPinupsList = function () {
@@ -47,6 +48,45 @@
                     }
                 )
         }
-    }
 
+        $scope.displayPinup = function () {
+            var category = $scope.chosenPinup.value;
+
+            let pinupDivArray = document.getElementsByClassName("pinupDiv");
+            console.log(pinupDivArray);
+
+            for (let element of pinupDivArray) {
+                if (element.innerHTML === "") {
+
+                    if (category.includes("enemy")) {
+                        var newlabel = document.createElement("Label");
+                        var newLabelText = "Difficulty: " + $scope.chosenPinup.diff + "<br/>" + " HP: " + $scope.chosenPinup.HP + "<br/>" + " STR: " + $scope.chosenPinup.STR + "<br/>" + " Armor: " + $scope.chosenPinup.Armor;
+                        newlabel.innerHTML = newLabelText;
+                        newlabel.className = "pinupLabel";
+                        element.appendChild(newlabel);
+                        break;
+                    }
+                    else if (category.includes("weapon")) {
+                        var newlabel = document.createElement("Label");
+                        var newLabelText = "Weapon: " + $scope.chosenPinup.WeaponName + "<br/>" + "Type: " + $scope.chosenPinup.WeaponType + "<br/>" + "DR: " + $scope.chosenPinup.DR + "<br/>" + "DK: " + $scope.chosenPinup.DK;
+                        newlabel.innerHTML = newLabelText;
+                        newlabel.className = "pinupLabel";
+                        category = "";
+                        element.appendChild(newlabel);
+                        break;
+                    }
+                    else {
+                        var newlabel = document.createElement("Label");
+                        var newLabelText = $scope.chosenPinup.NoteText;
+                        newlabel.innerHTML = newLabelText;
+                        newlabel.className = "pinupLabel";
+                        element.appendChild(newlabel);
+                        break;
+                    }
+                }
+            }
+
+            return category;
+        }
+    }
 })();
