@@ -33,7 +33,7 @@
         $scope.result = "";
         $scope.chosenGraphic;
         $scope.graphicSource = './graphics/Dolgoldur.jpg'
-        $scope.image ="";
+        //$scope.image ="";
 
         $scope.toggleGraphicsBrowser = function(){
             $scope.showGraphicsBrowser = !$scope.showGraphicsBrowser;
@@ -43,18 +43,17 @@
 
         $scope.selectGraphic = function(){
             $scope.graphicSource = './graphics/'+$scope.chosenGraphic; 
-            let image = document.getElementById('images');
-            image.src = "./graphics/"+$scope.chosenGraphic;
+            //let image = document.getElementById('images');
+            //image.src = "./graphics/"+$scope.chosenGraphic;
             $scope.displayGraphic();
             $scope.showGraphicsBrowser = false;
             $scope.showGraphicsSheet = true;
             console.log($scope.chosenGraphic);
             console.log($scope.graphicSource);
-        }
+            }
 
-        $scope.displayGraphic = function(image){
-            window.open($scope.graphicSource);
-            image.load();
+        $scope.displayGraphic = function(){
+            window.open($scope.graphicSource,"_blank");
         }
 
         $scope.getAllGraphics = function () {
